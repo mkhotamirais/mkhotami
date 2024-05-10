@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>acc1</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: capitalize;
+      }
+      .container {
+        min-height: 100vh;
+        background: #00cccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 70px;
+      }
+      .container section {
+        width: 700px;
+        margin: 5px;
+        box-shadow: 0 5px 10px #3334;
+      }
+      .container section details summary {
+        padding: 15px;
+        background: #008b8b;
+        color: #fff;
+        border: 1px solid #444;
+        position: relative;
+        list-style: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 20px;
+      }
+      .container section details p {
+        font-size: 15px;
+        padding: 10px;
+        color: #444;
+        background: #e6ffff;
+      }
+      .container section details summary::after {
+        content: "+";
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+        color: white;
+        transition: 0.2s linear;
+      }
+      .container section details[open] summary::after {
+        transform: rotate(135deg);
+      }
+      .container section details[open] summary {
+        background: #006666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section>
+        <details>
+          <summary>accordion menu1</summary>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus corporis molestiae odit, dolorem ut explicabo
+            recusandae laboriosam dicta laborum! Eum, earum et pariatur veniam aliquam facere ullam explicabo ea dolorem.
+          </p>
+        </details>
+        <details>
+          <summary>accordion menu2</summary>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus corporis molestiae odit, dolorem ut explicabo
+            recusandae laboriosam dicta laborum! Eum, earum et pariatur veniam aliquam facere ullam explicabo ea dolorem.
+          </p>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda, fugiat?</p>
+        </details>
+        <details>
+          <summary>accordion menu3</summary>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus corporis molestiae odit, dolorem ut explicabo
+            recusandae laboriosam dicta laborum! Eum, earum et pariatur veniam aliquam facere ullam explicabo ea dolorem.
+          </p>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda, fugiat? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Earum ex temporibus laboriosam sed reiciendis aspernatur, assumenda exercitationem
+            quaerat at vitae!
+          </p>
+        </details>
+        <details>
+          <summary>accordion menu4</summary>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus corporis molestiae odit, dolorem ut explicabo
+            recusandae laboriosam dicta laborum! Eum, earum et pariatur veniam aliquam facere ullam explicabo ea dolorem.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque nihil placeat sequi. Consequatur iusto quis
+            mollitia harum reiciendis sequi, aut at dolor eveniet odio quibusdam quae maxime rerum alias accusamus.
+          </p>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda, fugiat?</p>
+        </details>
+      </section>
+    </div>
+  </body>
+</html>

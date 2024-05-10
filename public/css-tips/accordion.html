@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>accordion</title>
+    <style>
+      ul {
+        list-style: none;
+        padding-left: 10px;
+      }
+
+      .acc-container {
+        padding-left: 0;
+      }
+
+      .acc-btn {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .acc-btn::after {
+        content: "+";
+      }
+
+      .expand::after {
+        content: "-";
+      }
+
+      .acc-collapse {
+        max-height: 0;
+        overflow: hidden;
+        border-bottom: 1px solid;
+        transition: 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Accordion</h1>
+    <ul class="acc-container">
+      <li class="acc-btn">List1</li>
+      <ul class="acc-collapse">
+        <li>List1 Child1</li>
+        <li>List1 Child2</li>
+      </ul>
+      <li class="acc-btn">List2</li>
+      <ul class="acc-collapse">
+        <li>LIst2 Child1</li>
+        <li>LIst2 Child2</li>
+        <li>LIst2 Child3</li>
+        <li>LIst2 Child4</li>
+      </ul>
+      <li class="acc-btn">List3</li>
+      <ul class="acc-collapse">
+        <li>List3 Child1</li>
+        <li>List3 Child2</li>
+        <li>List3 Child3</li>
+        <li>List3 Child4</li>
+        <li>List3 Child5</li>
+        <li>List3 Child6</li>
+      </ul>
+    </ul>
+    <script type="text/javascript">
+      const accBtn = document.querySelectorAll(".acc-btn");
+      accBtn.forEach((accButton, i) => {
+        accButton.addEventListener("click", function () {
+          this.classList.toggle("expand");
+          const accCollapse = this.nextElementSibling;
+          if (this.classList.contains("expand")) {
+            accCollapse.style.maxHeight = `${accCollapse.scrollHeight}px`;
+          } else {
+            accCollapse.style.maxHeight = 0;
+          }
+          autoCollapse(i);
+        });
+        window.addEventListener("click", function (e) {
+          if (e.target !== accButton) {
+            accButton.nextElementSibling.style.maxHeight = 0;
+            accButton.classList.remove("expand");
+          }
+        });
+      });
+      function autoCollapse(i) {
+        accBtn.forEach((accButton2, i2) => {
+          if (i !== i2) {
+            const accCollapse2 = accButton2.nextElementSibling;
+            accButton2.classList.remove("expand");
+            accCollapse2.style.maxHeight = 0;
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

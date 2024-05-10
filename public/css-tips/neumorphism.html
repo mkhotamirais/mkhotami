@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>neumorphism</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #262626;
+      }
+      .container {
+        border: 1px solid;
+        margin: 40px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 60px;
+        width: 800px;
+        background: #262626;
+        border-radius: 50px;
+        box-shadow: -5px -5px 10px #0d0d0d inset, 5px 5px 10px #333 inset;
+      }
+      .container .navbar {
+        height: 40px;
+        width: 96.5%;
+        background: #262626;
+        border-radius: 50px;
+        box-shadow: 5px 5px 10px #0d0d0d inset, -5px -5px 10px #333 inset;
+      }
+      .container .navbar ul {
+        list-style: none;
+      }
+      .container .navbar ul li {
+        position: relative;
+        float: left;
+        margin: 2px;
+        height: 40px;
+        line-height: 40px;
+        width: 150px;
+        color: #fff;
+        text-align: center;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-family: Arial, Helvetica, sans-serif;
+        cursor: pointer;
+        border-radius: 50px;
+        transition: 0.2s;
+      }
+      .container .navbar ul li:hover {
+        background: #ff3300;
+        box-shadow: 5px 5px 10px #0d0d0d inset, -5px -5px 10px #333 inset;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <ul>
+          <li>item1</li>
+          <li>item2</li>
+          <li>item3</li>
+          <li>item4</li>
+          <li>item5</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
