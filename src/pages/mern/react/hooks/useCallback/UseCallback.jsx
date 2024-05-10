@@ -1,18 +1,17 @@
-import { H2, Par, Pre } from "../../../components/Tags";
 import { Cb1 } from "./UseCallbackBasic";
 
 export const UseCallback = () => {
   return (
     <div>
-      <H2>useCallback</H2>
-      <Par>
+      <div>useCallback</div>
+      <p>
         useCallback identity adalah nilai pasti milik setiap identifier. misal, fungsi yang dideklarasikan di dalam komponen
         akan memiliki identity yang berbeda setiap komponen dirender. Hal ini akan menyebabkan render loop ketika memasukan
         identity yang berbeda pada effect dependency. untuk mempertahankan nilai identity dari sebuah fungsi, signaturenya
         mirip useEffect namun nilai dependensi di sini yang digunakan untuk menentukan apakah nilai identity dirubah atau
         tidak.
-      </Par>
-      <Pre>{`
+      </p>
+      <pre>{`
 refferential equality:
 7 === 7               true
 "ahmad" === "ahmad"   true
@@ -22,7 +21,7 @@ const a1 = ff()
 const a2 = ff()
 a1 === a2     false
 
-      `}</Pre>
+      `}</pre>
       <Cb1 />
     </div>
   );
