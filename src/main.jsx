@@ -45,17 +45,17 @@ import { Accordion } from "./pages/home/reactComponents/accordion/Accordion.jsx"
 import { Carousel } from "./pages/home/reactComponents/carousel/Carousel.jsx";
 import Pagination from "./pages/home/reactComponents/pagination/Pagination.jsx";
 import ReactRingkasan from "./pages/mern/react/ReactRingkasan.jsx";
-import { UseState } from "../../panduan-reactjs/src/pages/hooks/useState/UseState.jsx";
-import { UseEffect } from "../../panduan-reactjs/src/pages/hooks/useEffect/UseEffect.jsx";
-import { UseCallback } from "../../panduan-reactjs/src/pages/hooks/useCallback/UseCallback.jsx";
-import UseMemo from "../../panduan-reactjs/src/pages/hooks/useMemo/UseMemo.jsx";
-import UseContext from "../../panduan-reactjs/src/pages/hooks/useContext/UseContext.jsx";
-import UseReducer from "../../panduan-reactjs/src/pages/hooks/useReducer/UseReducer.jsx";
-import { CustomHook } from "../../panduan-reactjs/src/pages/hooks/customHook/CustomHook.jsx";
-import LifecycleClass from "../../panduan-reactjs/src/pages/hooks/lifecycleClass/LifecycleClass.jsx";
 import MiniProjects from "./pages/mini-projects/MiniProjects.jsx";
 import Todo from "./pages/mini-projects/todo/Todo.jsx";
 import Kamus from "./pages/mini-projects/kamus-mini/Kamus.jsx";
+import { UseState } from "./pages/mern/react/hooks/useState/UseState.jsx";
+import { UseEffect } from "./pages/mern/react/hooks/useEffect/UseEffect.jsx";
+import { UseCallback } from "./pages/mern/react/hooks/useCallback/UseCallback.jsx";
+import LifecycleClass from "./pages/mern/react/hooks/lifecycleClass/LifecycleClass.jsx";
+import { CustomHook } from "./pages/mern/react/hooks/customHook/CustomHook.jsx";
+import UseReducer from "./pages/mern/react/hooks/useReducer/UseReducer.jsx";
+import UseContext from "./pages/mern/react/hooks/useContext/UseContext.jsx";
+import UseMemo from "./pages/mern/react/hooks/useMemo/UseMemo.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
