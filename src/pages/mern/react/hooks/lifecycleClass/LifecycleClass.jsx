@@ -1,5 +1,4 @@
 import React from "react";
-import { H2 } from "../../../components/Tags";
 
 class Title extends React.Component {
   constructor(props) {
@@ -64,7 +63,7 @@ class LifecycleClass extends React.Component {
     console.log("RENDER");
     return (
       <>
-        <H2>lifecycle class</H2>
+        <div>lifecycle class</div>
         <p>Untuk melihat siklusnya lihat di console</p>
         {this.state.view ? <Title name={this.state.name} count={this.state.count} /> : null}
         <button onClick={() => this.setState({ view: !this.state.view })} className="underline">
