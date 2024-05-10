@@ -1,15 +1,14 @@
 import { useState } from "react";
-import { H2, H3, Par } from "../../../components/Tags";
 
 export const UseState = () => {
   return (
     <div>
-      <H2>useState</H2>
-      <Par>
+      <div>useState</div>
+      <p>
         useState, react v-16.8.0. Untuk membuat state dibutuhkan variable dan updaternya. Parameter updaternya harus berupa
         nilai, tapi bisa juga fungsi callback asalkan kembalikan nilai
-      </Par>
-      <H3>state counter</H3>
+      </p>
+      <div>state counter</div>
       <StateCounter />
     </div>
   );
