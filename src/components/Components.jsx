@@ -34,7 +34,7 @@ export const Breadcrumb = ({ className }) => {
           <Prev />
           <Next />
         </div>
-        <div className="flex">
+        <div className="flex min-w-max overflow-x-hidden">
           {path.map((item, i) => {
             let to;
             if (i === 0) to = "..";
