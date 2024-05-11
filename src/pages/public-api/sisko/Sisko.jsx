@@ -24,7 +24,7 @@ const Sisko = () => {
     <div>
       <div>Sistem toko</div>
       <div
-        className={`flex justify-between items-center gap-2 mb-2 sticky top-16 z-50 py-1 ${
+        className={`z-30 flex justify-between items-center gap-2 mb-2 sticky top-16 py-1 ${
           dark ? "bg-slate-800" : "bg-white"
         }`}
       >

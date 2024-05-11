@@ -1,7 +1,9 @@
+import { useSelector } from "react-redux";
 import { isRouteErrorResponse, useRouteError } from "react-router-dom";
 
 const ErrorBoundary = () => {
   const error = useRouteError();
+  const { dark } = useSelector((state) => state.basic);
 
   let content;
   if (isRouteErrorResponse(error)) {
@@ -15,7 +17,15 @@ const ErrorBoundary = () => {
       content = <div>🫖</div>;
     } else content = <div>Something went wrong</div>;
   }
-  return <div className="flex items-center justify-center h-screen text-3xl italic">{content}</div>;
+  return (
+    <div
+      className={`${
+        dark ? "bg-slate-800 text-white" : "bg-white"
+      } flex items-center justify-center h-screen text-3xl italic`}
+    >
+      {content}
+    </div>
+  );
 };
 
 export default ErrorBoundary;
