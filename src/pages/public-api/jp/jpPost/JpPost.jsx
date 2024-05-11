@@ -10,9 +10,7 @@ const JpPost = () => {
   useEffect(() => {
     dispatch(getPosts());
   }, [dispatch]);
-  //   useEffect(() => {
-  //     console.log(data);
-  //   }, [data]);
+
   let content;
   if (status === "loading") content = <Loading />;
   else if (status === "failed") content = <Err>{error}</Err>;
