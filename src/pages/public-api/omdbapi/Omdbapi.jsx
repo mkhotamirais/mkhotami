@@ -13,6 +13,10 @@ const Omdbapi = () => {
     dispatch(getMovies(params));
   }, [dispatch, params]);
 
+  useEffect(() => {
+    console.log(status);
+  }, [status]);
+
   let content;
   if (status === "loading") content = <Loading />;
   else if (status === "failed") content = <Err>{error}</Err>;
@@ -24,9 +28,9 @@ const Omdbapi = () => {
   }
   return (
     <div>
-      <div>
-        <OmdbReset />
+      <div className="flex justify-between items-center">
         <OmdbSearch />
+        <OmdbReset />
       </div>
       <div className="flex gap-1">
         <OmdbType />

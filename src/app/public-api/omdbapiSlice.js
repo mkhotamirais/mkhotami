@@ -3,30 +3,40 @@ import axios from "axios";
 
 const omdbapiUrl = `https://www.omdbapi.com/?apikey=99773434`;
 
-export const getMovies = createAsyncThunk("omdbapi/getMovies", async (paramObj) => {
-  let param;
-  param = { s: "spongebob", ...paramObj };
-  if (param.s === null || param.s === "") param.s = "spongebob";
-  const paramString = Object.entries(param)
-    .map((item) => item.join("="))
-    .join("&");
-  const res = await axios.get(`${omdbapiUrl}&${paramString}`);
-  return res.data.Search;
+export const getMovies = createAsyncThunk("omdbapi/getMovies", async (paramObj, { rejectWithValue }) => {
+  try {
+    let param;
+    param = { s: "spongebob", ...paramObj };
+    if (param.s === null || param.s === "") param.s = "spongebob";
+    const paramString = Object.entries(param)
+      .map((item) => item.join("="))
+      .join("&");
+    const res = await axios.get(`${omdbapiUrl}&${paramString}`);
+    return res.data.Search;
+  } catch (error) {
+    console.log(error);
+    return rejectWithValue(error?.response?.message || error?.message || error);
+  }
 });
 
-export const getMovieByImdb = createAsyncThunk("omdbapi/getMovieByImdb", async (i) => {
-  const res = await axios.get(`${omdbapiUrl}&i=${i}`);
-  return res.data;
+export const getMovieByImdb = createAsyncThunk("omdbapi/getMovieByImdb", async (i, { rejectWithValue }) => {
+  try {
+    const res = await axios.get(`${omdbapiUrl}&i=${i}`);
+    return res.data;
+  } catch (error) {
+    rejectWithValue(error?.response?.message || error?.message);
+  }
 });
 
 const omdbapiSlice = createSlice({
   name: "omdbapi",
   initialState: {
     data: null,
-    dataImdb: null,
     status: "idle",
-    statusImdb: "idle",
     error: null,
+    dataImdb: null,
+    statusImdb: "idle",
+    errorImdb: null,
     params: {},
     s: "",
     type: "",
@@ -69,12 +79,20 @@ const omdbapiSlice = createSlice({
         state.status = "succeeded";
         state.data = action.payload;
       })
+      .addCase(getMovies.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.payload;
+      })
       .addCase(getMovieByImdb.pending, (state) => {
         state.statusImdb = "loading";
       })
       .addCase(getMovieByImdb.fulfilled, (state, action) => {
         state.statusImdb = "succeeded";
         state.dataImdb = action.payload;
+      })
+      .addCase(getMovieByImdb.rejected, (state, action) => {
+        state.statusImdb = "failed";
+        state.errorImdb = action.payload;
       });
   },
 });

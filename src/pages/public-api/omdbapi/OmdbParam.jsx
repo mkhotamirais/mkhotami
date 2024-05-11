@@ -5,7 +5,11 @@ import { useEffect } from "react";
 
 export const OmdbReset = () => {
   const dispatch = useDispatch();
-  return <button onClick={() => dispatch(reset())}>reset</button>;
+  return (
+    <button onClick={() => dispatch(reset())} className="bg-cyan-500 text-white hover:opacity-70 rounded p-1 px-2">
+      reset
+    </button>
+  );
 };
 
 export const OmdbSearch = () => {
@@ -45,12 +49,12 @@ export const OmdbType = () => {
 
   return (
     <div>
-      <select name="type" id="type" className="p-1 border rounded mb-2" onChange={(e) => dispatch(setType(e.target.value))}>
+      <Pilih id="type" onChange={(e) => dispatch(setType(e.target.value))}>
         <option value="">type</option>
         <option value="movie">movie</option>
         <option value="series">series</option>
         <option value="episode">episode</option>
-      </select>
+      </Pilih>
     </div>
   );
 };
@@ -67,18 +71,16 @@ export const OmdbY = () => {
     tahun.push(i);
   }
   return (
-    <div>
-      <select name="y" id="y" className="p-1 border rounded mb-2" onChange={(e) => dispatch(setY(e.target.value))}>
-        <option value="">year</option>
-        {tahun.map((item, i) => (
-          <option key={i} value={item}>
-            {item}
-          </option>
-        ))}
-        <option value="series">series</option>
-        <option value="episode">episode</option>
-      </select>
-    </div>
+    <Pilih id="y" onChange={(e) => dispatch(setY(e.target.value))}>
+      <option value="">year</option>
+      {tahun.map((item, i) => (
+        <option key={i} value={item}>
+          {item}
+        </option>
+      ))}
+      <option value="series">series</option>
+      <option value="episode">episode</option>
+    </Pilih>
   );
 };
 
@@ -90,12 +92,27 @@ export const OmdbPlot = () => {
   }, [dispatch, plot]);
 
   return (
+    <Pilih id="plot" onChange={(e) => dispatch(setPlot(e.target.value))}>
+      <option value="">plot</option>
+      <option value="short">short</option>
+      <option value="full">full</option>
+    </Pilih>
+  );
+};
+
+const Pilih = ({ id, onChange, children }) => {
+  const { dark } = useSelector((state) => state.basic);
+  return (
     <div>
-      <select name="plot" id="plot" className="p-1 border rounded mb-2" onChange={(e) => dispatch(setPlot(e.target.value))}>
-        <option value="">plot</option>
-        <option value="short">short</option>
-        <option value="full">full</option>
+      <select
+        name={id}
+        id={id}
+        onChange={onChange}
+        className={`${dark ? "bg-slate-800" : "bg-white"} p-1 border rounded mb-2`}
+      >
+        {children}
       </select>
     </div>
   );
 };
+Pilih.propTypes;

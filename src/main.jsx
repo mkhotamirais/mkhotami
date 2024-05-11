@@ -56,6 +56,14 @@ import { CustomHook } from "./pages/mern/react/hooks/customHook/CustomHook.jsx";
 import UseReducer from "./pages/mern/react/hooks/useReducer/UseReducer.jsx";
 import UseContext from "./pages/mern/react/hooks/useContext/UseContext.jsx";
 import UseMemo from "./pages/mern/react/hooks/useMemo/UseMemo.jsx";
+import JpPost from "./pages/public-api/jp/jpPost/JpPost.jsx";
+import JpUser from "./pages/public-api/jp/jpUser/JpUser.jsx";
+import JpUserDetail from "./pages/public-api/jp/jpUser/JpUserDetail.jsx";
+import JpPostDetail from "./pages/public-api/jp/jpPost/JpPostDetail.jsx";
+import { getPosts, getUsers } from "./app/public-api/jpSlice.js";
+
+store.dispatch(getUsers());
+store.dispatch(getPosts());
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -117,7 +125,17 @@ const router = createBrowserRouter(
       <Route path="public-apis" element={<PublicApi />}>
         <Route index element={<Omdbapi />} />
         <Route path="omdbapi" element={<Omdbapi />} />
-        <Route path="jsonplaceholder" element={<Jp />} />
+        <Route path="jsonplaceholder" element={<Jp />}>
+          <Route index element={<JpPost />} />
+          <Route path="jpposts">
+            <Route index element={<JpPost />} />
+            <Route path="detail/:id" element={<JpPostDetail />} />
+          </Route>
+          <Route path="jpusers">
+            <Route index element={<JpUser />} />
+            <Route path="detail/:id" element={<JpUserDetail />} />
+          </Route>
+        </Route>
         <Route path="sisko" element={<Sisko />} />
         <Route path="fakestoreapi" element={<Fksapi />} />
         <Route path="newsapi" element={<Newsapi />} />

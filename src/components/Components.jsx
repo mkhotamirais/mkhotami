@@ -71,7 +71,7 @@ export const Bubble = ({ menus, className }) => {
         <FaBars />
       </button>
       <div
-        className={`absolute ${dark ? "bg-slate-900" : "bg-white"} translate-y-1 ${
+        className={`z-40 absolute ${dark ? "bg-slate-900" : "bg-white"} translate-y-1 ${
           openBubble ? "scale-100" : "scale-0"
         } origin-top-left overflow-hidden border p-2 px-3 rounded transition-all duration-150`}
       >
