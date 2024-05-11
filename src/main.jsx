@@ -63,10 +63,17 @@ import JpPostDetail from "./pages/public-api/jp/jpPost/JpPostDetail.jsx";
 import { getPosts, getUsers } from "./app/public-api/jpSlice.js";
 import { getFakeProducts } from "./app/public-api/fksapiSlice.js";
 import FksapiDetail from "./pages/public-api/fksapi/FksapiDetail.jsx";
+import ResourceApi from "./pages/public-api/ResourceApi.jsx";
+import { getSiskoProducts } from "./app/public-api/siskoSlice.js";
+import SiskoDetail from "./pages/public-api/sisko/SiskoDetail.jsx";
+import SiskoCart from "./pages/public-api/sisko/SiskoCart.jsx";
+import SiskoCheckout from "./pages/public-api/sisko/SiskoCheckout.jsx";
+import SiskoInvoice from "./pages/public-api/sisko/SiskoInvoice.jsx";
 
 store.dispatch(getUsers());
 store.dispatch(getPosts());
 store.dispatch(getFakeProducts());
+store.dispatch(getSiskoProducts());
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -126,7 +133,7 @@ const router = createBrowserRouter(
         </Route>
       </Route>
       <Route path="public-apis" element={<PublicApi />}>
-        <Route index element={<Omdbapi />} />
+        <Route index element={<ResourceApi />} />
         <Route path="omdbapi" element={<Omdbapi />} />
         <Route path="jsonplaceholder" element={<Jp />}>
           <Route index element={<JpPost />} />
@@ -139,7 +146,13 @@ const router = createBrowserRouter(
             <Route path="detail/:id" element={<JpUserDetail />} />
           </Route>
         </Route>
-        <Route path="sisko" element={<Sisko />} />
+        <Route path="sisko">
+          <Route index element={<Sisko />} />
+          <Route path="detail/:id" element={<SiskoDetail />} />
+          <Route path="cart" element={<SiskoCart />} />
+          <Route path="checkout" element={<SiskoCheckout />} />
+          <Route path="invoice" element={<SiskoInvoice />} />
+        </Route>
         <Route path="fakestoreapi">
           <Route index element={<Fksapi />} />
           <Route path="detail/:id" element={<FksapiDetail />} />

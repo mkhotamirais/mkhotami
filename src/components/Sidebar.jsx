@@ -34,6 +34,7 @@ const mernMenus = [
 ];
 
 const publicApisMenus = [
+  { href: "/public-apis", text: "resource api" },
   { href: "/public-apis/omdbapi", text: "omdbapi" },
   { href: "/public-apis/jsonplaceholder", text: "jsonplaceholder" },
   { href: "/public-apis/fakestoreapi", text: "fakestoreapi" },

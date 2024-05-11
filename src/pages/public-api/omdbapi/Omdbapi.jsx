@@ -13,10 +13,6 @@ const Omdbapi = () => {
     dispatch(getMovies(params));
   }, [dispatch, params]);
 
-  useEffect(() => {
-    console.log(status);
-  }, [status]);
-
   let content;
   if (status === "loading") content = <Loading />;
   else if (status === "failed") content = <Err>{error}</Err>;
@@ -37,7 +33,6 @@ const Omdbapi = () => {
         <OmdbY />
         <OmdbPlot />
       </div>
-
       {content}
     </div>
   );
