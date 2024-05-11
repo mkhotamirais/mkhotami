@@ -61,9 +61,12 @@ import JpUser from "./pages/public-api/jp/jpUser/JpUser.jsx";
 import JpUserDetail from "./pages/public-api/jp/jpUser/JpUserDetail.jsx";
 import JpPostDetail from "./pages/public-api/jp/jpPost/JpPostDetail.jsx";
 import { getPosts, getUsers } from "./app/public-api/jpSlice.js";
+import { getFakeProducts } from "./app/public-api/fksapiSlice.js";
+import FksapiDetail from "./pages/public-api/fksapi/FksapiDetail.jsx";
 
 store.dispatch(getUsers());
 store.dispatch(getPosts());
+store.dispatch(getFakeProducts());
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -137,7 +140,10 @@ const router = createBrowserRouter(
           </Route>
         </Route>
         <Route path="sisko" element={<Sisko />} />
-        <Route path="fakestoreapi" element={<Fksapi />} />
+        <Route path="fakestoreapi">
+          <Route index element={<Fksapi />} />
+          <Route path="detail/:id" element={<FksapiDetail />} />
+        </Route>
         <Route path="newsapi" element={<Newsapi />} />
       </Route>
       <Route path="mini-projects" element={<MiniProjects />}>

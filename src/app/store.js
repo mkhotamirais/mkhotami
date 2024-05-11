@@ -3,6 +3,7 @@ import basicReducer from "./features/basicSlice";
 import todoReducer from "./features/todoSlice";
 import omdbapiReducer from "./public-api/omdbapiSlice";
 import jpReducer from "./public-api/jpSlice";
+import fksapiReducer from "./public-api/fksapiSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
     todo: todoReducer,
     omdbapi: omdbapiReducer,
     jp: jpReducer,
+    fksapi: fksapiReducer,
   },
 });
