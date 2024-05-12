@@ -44,7 +44,7 @@ export const DarkMode = () => {
 
 export const SourceCode = () => {
   return (
-    <a href="/">
+    <a href="https://github.com/mkhotamirais/mkhotami">
       <FaGithub />
     </a>
   );

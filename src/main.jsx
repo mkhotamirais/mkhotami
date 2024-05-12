@@ -69,6 +69,7 @@ import SiskoDetail from "./pages/public-api/sisko/SiskoDetail.jsx";
 import SiskoCart from "./pages/public-api/sisko/SiskoCart.jsx";
 import SiskoCheckout from "./pages/public-api/sisko/SiskoCheckout.jsx";
 import SiskoInvoice from "./pages/public-api/sisko/SiskoInvoice.jsx";
+import MernReferensi from "./pages/mern/MernReferensi.jsx";
 
 store.dispatch(getUsers());
 store.dispatch(getPosts());
@@ -108,7 +109,8 @@ const router = createBrowserRouter(
         <Route path="typescript" element={<Ts />} />
       </Route>
       <Route path="mern" element={<Mern />}>
-        <Route index element={<ReactJs />} />
+        <Route index element={<MernReferensi />} />
+        <Route path="referensi" element={<MernReferensi />} />
         <Route path="reactjs" element={<ReactJs />}>
           <Route index element={<ReactRingkasan />} />
           <Route path="react-ringkasan" element={<ReactRingkasan />} />

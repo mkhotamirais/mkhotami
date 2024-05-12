@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const homeMenus = [
-  { href: "/home/reference", text: "reference" },
+  { href: "/home", text: "reference" },
   { href: "/home/css-tips", text: "css tips" },
   { href: "/home/simple-webpage", text: "simple webpage" },
   { href: "/home/vanilla-components", text: "vanilla components" },
@@ -16,7 +16,7 @@ const homeMenus = [
 ];
 
 const basicMenus = [
-  { href: "/basic/html", text: "html" },
+  { href: "/basic", text: "html" },
   { href: "/basic/css", text: "css" },
   { href: "/basic/javascript", text: "javascript" },
   { href: "/basic/php", text: "php" },
@@ -26,6 +26,7 @@ const basicMenus = [
 ];
 
 const mernMenus = [
+  { href: "/mern", text: "referensi" },
   { href: "/mern/mongodb", text: "mongodb" },
   { href: "/mern/mysql", text: "mysql" },
   { href: "/mern/express", text: "express" },
@@ -43,7 +44,7 @@ const publicApisMenus = [
 ];
 
 const miniProjectsMenus = [
-  { href: "/mini-projects/todo", text: "todo" },
+  { href: "/mini-projects", text: "todo" },
   { href: "/mini-projects/kamus-mini", text: "kamus mini" },
 ];
 
