@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Bubble } from "../../../components/Components";
+import { BtnAuth } from "./ShopAuth";
 
 const shopMenus = [
   { href: "", text: "home" },
@@ -17,7 +18,7 @@ const Shop = () => {
             <div>shop</div>
           </div>
         </div>
-        <div>login</div>
+        <BtnAuth />
       </div>
       <Outlet />
     </div>

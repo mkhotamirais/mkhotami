@@ -80,6 +80,9 @@ import Course from "./pages/basic/course/Course.jsx";
 import CourseTasks from "./pages/basic/course/CourseTasks.jsx";
 import CourseTheory from "./pages/basic/course/CourseTheory.jsx";
 import CourseWork from "./pages/basic/course/CourseWork.jsx";
+import ShopSignin from "./pages/projects/shop/auth/ShopSignin.jsx";
+import ShopSignup from "./pages/projects/shop/auth/ShopSignup.jsx";
+import AuthRedirect from "./pages/projects/shop/auth/AuthRedirect.jsx";
 
 store.dispatch(getUsers());
 store.dispatch(getPosts());
@@ -183,6 +186,10 @@ const router = createBrowserRouter(
         <Route path="kamus-mini" element={<Kamus />} />
         <Route path="shop" element={<Shop />}>
           <Route index element={<ShopHome />} />
+          <Route element={<AuthRedirect />}>
+            <Route path="signin" element={<ShopSignin />} />
+            <Route path="signup" element={<ShopSignup />} />
+          </Route>
           <Route path="user">
             <Route index element={<ShopUser />} />
             <Route path="post" element={<ShopUserPost />} />

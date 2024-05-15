@@ -7,6 +7,7 @@ const basicSlice = createSlice({
     openNav: false,
     openSidebar: false,
     openBubble: false,
+    openBubbleAuth: false,
   },
   reducers: {
     toggleDark(state) {
@@ -35,6 +36,12 @@ const basicSlice = createSlice({
     removeOpenBubble(state) {
       state.openBubble = false;
     },
+    toggleOpenBubbleAuth(state) {
+      state.openBubbleAuth = !state.openBubbleAuth;
+    },
+    removeOpenBubbleAuth(state) {
+      state.openBubbleAuth = false;
+    },
   },
 });
 
@@ -47,5 +54,7 @@ export const {
   removeOpenSidebar,
   toggleOpenBubble,
   removeOpenBubble,
+  toggleOpenBubbleAuth,
+  removeOpenBubbleAuth,
 } = basicSlice.actions;
 export default basicSlice.reducer;

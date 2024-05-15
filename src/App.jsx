@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import { Outlet, ScrollRestoration } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { NavCollapse } from "./components/Navbar";
-import { removeOpenBubble, removeOpenNav, removeOpenSidebar } from "./app/features/basicSlice";
+import { removeOpenBubble, removeOpenBubbleAuth, removeOpenNav, removeOpenSidebar } from "./app/features/basicSlice";
 import { AsideBtn, AsideCollapse, AsideMain } from "./components/Sidebar";
 import usePath from "./hooks/usePath";
 import { Breadcrumb } from "./components/Components";
@@ -13,12 +13,13 @@ import { Toaster } from "react-hot-toast";
 const App = () => {
   const { dark } = useSelector((state) => state.basic);
   const dispatch = useDispatch();
-  const { openNav, openSidebar, openBubble } = useSelector((state) => state.basic);
+  const { openNav, openSidebar, openBubble, openBubbleAuth } = useSelector((state) => state.basic);
   const { path } = usePath();
   const handleClick = () => {
     if (openNav) dispatch(removeOpenNav());
     if (openSidebar) dispatch(removeOpenSidebar());
     if (openBubble) dispatch(removeOpenBubble());
+    if (openBubbleAuth) dispatch(removeOpenBubbleAuth());
   };
 
   useEffect(() => {
@@ -26,6 +27,7 @@ const App = () => {
       if (openNav) dispatch(removeOpenNav());
       if (openSidebar) dispatch(removeOpenSidebar());
       if (openBubble) dispatch(removeOpenBubble());
+      if (openBubbleAuth) dispatch(removeOpenBubbleAuth());
     });
   }, [dispatch, openNav, openSidebar, openBubble]);
 

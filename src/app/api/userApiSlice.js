@@ -2,6 +2,23 @@ import { apiSlice } from "./apiSlice";
 
 export const userApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
+    signin: builder.mutation({
+      query: (body) => ({ url: `/api/user/signin`, method: "PATCH", body }),
+      invalidatesTags: ["User"],
+    }),
+    signup: builder.mutation({
+      query: (body) => ({ url: `/api/user/signup`, method: "POST", body }),
+      invalidatesTags: (result, error, arg) => [{ type: "User", id: arg.id }],
+    }),
+    getMe: builder.query({
+      query: () => `/api/user/me`,
+      transformResponse: (res) => res.data,
+      providesTags: ["User"],
+    }),
+    signout: builder.mutation({
+      query: () => ({ url: `/api/user/signout`, method: "PATCH" }),
+      invalidatesTags: ["User"],
+    }),
     getUsers: builder.query({
       query: () => `/api/user`,
       transformResponse: (res) => res.data,
@@ -23,4 +40,13 @@ export const userApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-export const { useGetUsersQuery, useGetUserByIdQuery, usePostUserMutation, useDeleteUserMutation } = userApiSlice;
+export const {
+  useSigninMutation,
+  useSignupMutation,
+  useGetMeQuery,
+  useSignoutMutation,
+  useGetUsersQuery,
+  useGetUserByIdQuery,
+  usePostUserMutation,
+  useDeleteUserMutation,
+} = userApiSlice;
