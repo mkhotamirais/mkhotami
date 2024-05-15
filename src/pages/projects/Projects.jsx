@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
 
-const MiniProjects = () => {
+const Projects = () => {
   return (
     <div>
-      <div>mini projects</div>
+      <div>projects</div>
       <Outlet />
     </div>
   );
 };
 
-export default MiniProjects;
+export default Projects;

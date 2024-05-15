@@ -6,7 +6,7 @@ import Todo3 from "./todo3/Todo3";
 const Todo = () => {
   return (
     <div>
-      <div>Todo</div>
+      <div>Todo (data disimpan di localStorage)</div>
       <div>Todo with (useState, useEffect)</div>
       <Todo1 />
       <div>Todo with (useState, useEffect, useReducer, useContext)</div>

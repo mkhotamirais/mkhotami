@@ -10,7 +10,7 @@ const navMenus = [
   { href: "basic", text: "basic" },
   { href: "mern", text: "mern" },
   { href: "public-apis", text: "public apis" },
-  { href: "mini-projects", text: "mini projects" },
+  { href: "projects", text: "projects" },
 ];
 
 export const NavBtn = () => {

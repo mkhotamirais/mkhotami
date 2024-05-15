@@ -44,8 +44,9 @@ const publicApisMenus = [
 ];
 
 const miniProjectsMenus = [
-  { href: "/mini-projects", text: "todo" },
-  { href: "/mini-projects/kamus-mini", text: "kamus mini" },
+  { href: "/projects", text: "todo" },
+  { href: "/projects/kamus-mini", text: "kamus mini" },
+  { href: "/projects/shop", text: "shop" },
 ];
 
 export const AsideBtn = ({ className }) => {
@@ -65,7 +66,7 @@ export const AsideBtn = ({ className }) => {
 AsideBtn.propTypes;
 
 export const AsideLinks = ({ className }) => {
-  const [sidebarActive, setSidebarActive] = useState(0);
+  const [sidebarActive, setSidebarActive] = useState("");
   const { path } = usePath();
   const dispatch = useDispatch();
   const [menus, setMenus] = useState([]);
@@ -75,7 +76,9 @@ export const AsideLinks = ({ className }) => {
     if (openBubble) dispatch(removeOpenBubble());
   };
   useEffect(() => {
+    // console.log(path[2]);
     setSidebarActive(path[2]);
+    // setSidebarActive("mongodb");
   }, [path]);
 
   useEffect(() => {
@@ -83,11 +86,7 @@ export const AsideLinks = ({ className }) => {
     else if (path[1] === "basic") setMenus(basicMenus);
     else if (path[1] === "mern") setMenus(mernMenus);
     else if (path[1] === "public-apis") setMenus(publicApisMenus);
-    else if (path[1] === "mini-projects") setMenus(miniProjectsMenus);
-  }, [path]);
-
-  useEffect(() => {
-    setSidebarActive(path[2]);
+    else if (path[1] === "projects") setMenus(miniProjectsMenus);
   }, [path]);
 
   return (

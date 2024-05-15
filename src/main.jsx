@@ -45,9 +45,8 @@ import { Accordion } from "./pages/home/reactComponents/accordion/Accordion.jsx"
 import { Carousel } from "./pages/home/reactComponents/carousel/Carousel.jsx";
 import Pagination from "./pages/home/reactComponents/pagination/Pagination.jsx";
 import ReactRingkasan from "./pages/mern/react/ReactRingkasan.jsx";
-import MiniProjects from "./pages/mini-projects/MiniProjects.jsx";
-import Todo from "./pages/mini-projects/todo/Todo.jsx";
-import Kamus from "./pages/mini-projects/kamus-mini/Kamus.jsx";
+import Todo from "./pages/projects/todo/Todo.jsx";
+import Kamus from "./pages/projects/kamus-mini/Kamus.jsx";
 import { UseState } from "./pages/mern/react/hooks/useState/UseState.jsx";
 import { UseEffect } from "./pages/mern/react/hooks/useEffect/UseEffect.jsx";
 import { UseCallback } from "./pages/mern/react/hooks/useCallback/UseCallback.jsx";
@@ -70,6 +69,13 @@ import SiskoCart from "./pages/public-api/sisko/SiskoCart.jsx";
 import SiskoCheckout from "./pages/public-api/sisko/SiskoCheckout.jsx";
 import SiskoInvoice from "./pages/public-api/sisko/SiskoInvoice.jsx";
 import MernReferensi from "./pages/mern/MernReferensi.jsx";
+import Projects from "./pages/projects/Projects.jsx";
+import Shop from "./pages/projects/shop/Shop.jsx";
+import ShopHome from "./pages/projects/shop/ShopHome.jsx";
+import ShopUser from "./pages/projects/shop/user/ShopUser.jsx";
+import ShopProduct from "./pages/projects/shop/product/ShopProduct.jsx";
+import ShopUserDetail from "./pages/projects/shop/user/ShopUserDetail.jsx";
+import ShopUserPost from "./pages/projects/shop/user/ShopUserPost.jsx";
 
 store.dispatch(getUsers());
 store.dispatch(getPosts());
@@ -161,10 +167,19 @@ const router = createBrowserRouter(
         </Route>
         <Route path="newsapi" element={<Newsapi />} />
       </Route>
-      <Route path="mini-projects" element={<MiniProjects />}>
+      <Route path="projects" element={<Projects />}>
         <Route index element={<Todo />} />
         <Route path="todo" element={<Todo />} />
         <Route path="kamus-mini" element={<Kamus />} />
+        <Route path="shop" element={<Shop />}>
+          <Route index element={<ShopHome />} />
+          <Route path="user">
+            <Route index element={<ShopUser />} />
+            <Route path="post" element={<ShopUserPost />} />
+            <Route path="detail/:id" element={<ShopUserDetail />} />
+          </Route>
+          <Route path="product" element={<ShopProduct />} />
+        </Route>
       </Route>
     </Route>
   )

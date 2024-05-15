@@ -55,7 +55,7 @@ export const Breadcrumb = ({ className }) => {
 Breadcrumb.propTypes;
 
 export const Bubble = ({ menus, className }) => {
-  const [bubbleActive, setBubbleActive] = useState(null);
+  const [bubbleActive, setBubbleActive] = useState("");
   const { path } = usePath();
   const { openBubble, dark } = useSelector((state) => state.basic);
   const dispatch = useDispatch();
@@ -63,8 +63,10 @@ export const Bubble = ({ menus, className }) => {
     dispatch(toggleOpenBubble());
   };
   useEffect(() => {
-    setBubbleActive(path[2]);
+    if (!path[3]) path[3] = "";
+    setBubbleActive(path[3]);
   }, [path]);
+
   return (
     <div className={`${className}`}>
       <button type="button" onClick={handleClick} className="flex">
