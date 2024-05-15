@@ -8,6 +8,7 @@ import { AsideBtn, AsideCollapse, AsideMain } from "./components/Sidebar";
 import usePath from "./hooks/usePath";
 import { Breadcrumb } from "./components/Components";
 import { useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const { dark } = useSelector((state) => state.basic);
@@ -53,6 +54,7 @@ const App = () => {
         )}
       </main>
       <Footer />
+      <Toaster />
       <ScrollRestoration />
     </div>
   );

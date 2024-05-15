@@ -2,6 +2,7 @@ import { useState } from "react";
 import { usePostUserMutation } from "../../../../app/api/userApiSlice";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { Input, Label } from "../../../../components/Tags";
 
 const ShopUserPost = () => {
   const [data, setData] = useState({});
@@ -29,6 +30,10 @@ const ShopUserPost = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <Label id="username">username</Label>
+        <Input id="username" onChange={handleChange} />
+        <Label id="email"></Label>
+        <Input type="password" id="password" />
         <input type="text" className="border bg-inherit" id="username" name="username" onChange={handleChange} />
         <input type="email" className="border bg-inherit" id="email" name="email" onChange={handleChange} />
         <input type="password" className="border bg-inherit" id="password" name="password" onChange={handleChange} />

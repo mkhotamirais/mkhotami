@@ -1,8 +1,14 @@
+import { useState } from "react";
 import { FaExclamationCircle } from "react-icons/fa";
 import { FaEnvelope, FaIdCard, FaPenToSquare, FaTrash, FaUser } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import ShopModalDel from "./ShopModalDel";
 
 const ShopUserItems = ({ item }) => {
+  const [IdModalDel, setIdModalDel] = useState(null);
+  const onClose = () => {
+    setIdModalDel(null);
+  };
   return (
     <div className="text-sm border rounded p-2 transition-all duration-150 cursor-pointer flex flex-col gap-1">
       <div className="text-xs flex gap-1 items-center">
@@ -26,9 +32,10 @@ const ShopUserItems = ({ item }) => {
             <FaExclamationCircle />
           </Link>
         </div>
-        <button className="text-red-500 hover:opacity-70">
+        <button onClick={() => setIdModalDel(item?._id)} className="text-red-500 hover:opacity-70">
           <FaTrash />
         </button>
+        <ShopModalDel onClose={onClose} itemId={item?._id} modalId={IdModalDel} />
       </div>
     </div>
   );

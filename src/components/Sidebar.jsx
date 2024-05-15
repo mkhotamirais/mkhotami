@@ -23,6 +23,7 @@ const basicMenus = [
   { href: "/basic/vcs", text: "vcs" },
   { href: "/basic/vscode", text: "vscode" },
   { href: "/basic/typescript", text: "typescript" },
+  { href: "/basic/course", text: "course" },
 ];
 
 const mernMenus = [
@@ -76,9 +77,7 @@ export const AsideLinks = ({ className }) => {
     if (openBubble) dispatch(removeOpenBubble());
   };
   useEffect(() => {
-    // console.log(path[2]);
     setSidebarActive(path[2]);
-    // setSidebarActive("mongodb");
   }, [path]);
 
   useEffect(() => {

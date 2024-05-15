@@ -116,7 +116,7 @@ export const Tabs = ({ menus }) => {
               {item.text}
               <FaExternalLinkAlt className="text-[0.5rem]" />
             </a>
-            <div className="border rounded shadow">
+            <div className="border rounded shadow overflow-hidden">
               <iframe src={item.href} className="w-full h-72" />
             </div>
           </div>
@@ -127,7 +127,7 @@ export const Tabs = ({ menus }) => {
 };
 Tabs.propTypes;
 
-export const Modal = ({ children, onClose, itemId, modalId, closeBtn = false }) => {
+export const Modal = ({ children, onClose, itemId, modalId, closeBtn = false, confirmDel = false, submitDel }) => {
   const { dark } = useSelector((state) => state.basic);
   return (
     <div
@@ -154,6 +154,19 @@ export const Modal = ({ children, onClose, itemId, modalId, closeBtn = false }) 
           </>
         )}
         {children}
+        {confirmDel && (
+          <form onSubmit={submitDel} className="relative">
+            {modalId === itemId && <input type="checkbox" autoFocus className="absolute -z-50 opacity-0" />}
+            <div className="flex gap-2">
+              <button type="submit" className="bg-red-500 text-white p-1 px-2 rounded hover:opacity-70">
+                Delete
+              </button>
+              <button type="button" onClick={onClose} className="bg-slate-500 rounded p-1 px-2 text-white hover:opacity-70">
+                Cancel
+              </button>
+            </div>
+          </form>
+        )}
       </div>
     </div>
   );

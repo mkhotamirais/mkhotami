@@ -76,6 +76,10 @@ import ShopUser from "./pages/projects/shop/user/ShopUser.jsx";
 import ShopProduct from "./pages/projects/shop/product/ShopProduct.jsx";
 import ShopUserDetail from "./pages/projects/shop/user/ShopUserDetail.jsx";
 import ShopUserPost from "./pages/projects/shop/user/ShopUserPost.jsx";
+import Course from "./pages/basic/course/Course.jsx";
+import CourseTasks from "./pages/basic/course/CourseTasks.jsx";
+import CourseTheory from "./pages/basic/course/CourseTheory.jsx";
+import CourseWork from "./pages/basic/course/CourseWork.jsx";
 
 store.dispatch(getUsers());
 store.dispatch(getPosts());
@@ -113,6 +117,12 @@ const router = createBrowserRouter(
         <Route path="vcs" element={<Vcs />} />
         <Route path="vscode" element={<Vscode />} />
         <Route path="typescript" element={<Ts />} />
+        <Route path="course" element={<Course />}>
+          <Route index element={<CourseTasks />} />
+          <Route path="task" element={<CourseTasks />} />
+          <Route path="theory" element={<CourseTheory />} />
+          <Route path="work" element={<CourseWork />} />
+        </Route>
       </Route>
       <Route path="mern" element={<Mern />}>
         <Route index element={<MernReferensi />} />
