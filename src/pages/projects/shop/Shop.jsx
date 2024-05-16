@@ -4,7 +4,6 @@ import { BtnAuth } from "./ShopAuth";
 
 const shopMenus = [
   { href: "", text: "home" },
-  { href: "user", text: "user" },
   { href: "product", text: "product" },
 ];
 

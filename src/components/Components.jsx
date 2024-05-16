@@ -75,7 +75,7 @@ export const Bubble = ({ menus, className }) => {
       <div
         className={`z-40 absolute ${dark ? "bg-slate-900" : "bg-white"} translate-y-1 ${
           openBubble ? "scale-100" : "scale-0"
-        } origin-top-left overflow-hidden border p-2 px-3 rounded transition-all duration-150`}
+        } origin-top-left overflow-hidden border p-2 px-3 rounded shadow transition-all duration-150`}
       >
         <div className="flex flex-col">
           {menus.map((item, i) => (

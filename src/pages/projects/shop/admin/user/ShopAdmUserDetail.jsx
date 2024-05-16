@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import { useGetUserByIdQuery } from "../../../../app/api/userApiSlice";
+import { useGetUserByIdQuery } from "../../../../../app/api/userApiSlice";
 import { FaEnvelope, FaIdCard, FaUser, FaUserGear, FaVenusMars } from "react-icons/fa6";
 
-const ShopUserDetail = () => {
+const ShopAdmUserDetail = () => {
   const { id } = useParams();
   const { data } = useGetUserByIdQuery(id);
 
@@ -35,4 +35,4 @@ const ShopUserDetail = () => {
   );
 };
 
-export default ShopUserDetail;
+export default ShopAdmUserDetail;

@@ -21,7 +21,7 @@ export const H3 = ({ children = "H3", className }) => (
 H3.propTypes;
 
 export const Label = ({ children = "Label", id, className }) => (
-  <label htmlFor={id} className={`${className} font-medium capitalize block py-1`}>
+  <label htmlFor={id} className={`${className} text-sm font-medium capitalize block py-1`}>
     {children}
   </label>
 );
@@ -37,7 +37,7 @@ export const Input = ({ type = "text", id, value, onChange, autoFocus, autoCompl
     autoFocus={autoFocus}
     autoComplete={autoComplete}
     placeholder={placeholder}
-    className={`${className} border rounded p-2 block w-full bg-inherit mb-2`}
+    className={`${className} border rounded p-1 block w-full bg-inherit mb-2 focus:outline-cyan-500`}
   />
 );
 Input.propTypes;
@@ -50,7 +50,7 @@ export const Select = ({ children, id, value, onChange, className }) => {
       name={id}
       value={value}
       onChange={onChange}
-      className={`${className} ${dark ? "bg-slate-800" : "bg-white"} border rounded p-2 w-full`}
+      className={`${className} ${dark ? "bg-slate-800" : "bg-white"} border rounded p-2 mb-2 w-full`}
     >
       {children}
     </select>

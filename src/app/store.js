@@ -7,6 +7,7 @@ import fksapiReducer from "./public-api/fksapiSlice";
 import siskoReducer from "./public-api/siskoSlice";
 import newsapiReducer from "./public-api/newsapiSlice";
 import authReducer from "./features/authSlice";
+import editReducer from "./features/editSlice";
 import { apiSlice } from "./api/apiSlice";
 
 export const store = configureStore({
@@ -19,6 +20,7 @@ export const store = configureStore({
     sisko: siskoReducer,
     newsapi: newsapiReducer,
     auth: authReducer,
+    edit: editReducer,
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware),

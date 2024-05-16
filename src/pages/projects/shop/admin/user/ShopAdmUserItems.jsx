@@ -2,9 +2,9 @@ import { useState } from "react";
 import { FaExclamationCircle } from "react-icons/fa";
 import { FaEnvelope, FaIdCard, FaPenToSquare, FaTrash, FaUser } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import ShopModalDel from "./ShopModalDel";
+import ShopAdmUserModalDel from "./ShopAdmUserModalDel";
 
-const ShopUserItems = ({ item }) => {
+const ShopAdmUserItems = ({ item }) => {
   const [IdModalDel, setIdModalDel] = useState(null);
   const onClose = () => {
     setIdModalDel(null);
@@ -35,11 +35,11 @@ const ShopUserItems = ({ item }) => {
         <button onClick={() => setIdModalDel(item?._id)} className="text-red-500 hover:opacity-70">
           <FaTrash />
         </button>
-        <ShopModalDel onClose={onClose} itemId={item?._id} modalId={IdModalDel} />
+        <ShopAdmUserModalDel onClose={onClose} itemId={item?._id} modalId={IdModalDel} />
       </div>
     </div>
   );
 };
-ShopUserItems.propTypes;
+ShopAdmUserItems.propTypes;
 
-export default ShopUserItems;
+export default ShopAdmUserItems;

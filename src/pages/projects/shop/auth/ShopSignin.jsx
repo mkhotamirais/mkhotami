@@ -3,11 +3,12 @@ import { Input, Label } from "../../../../components/Tags";
 import { useSigninMutation } from "../../../../app/api/userApiSlice";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { PiSpinner } from "react-icons/pi";
 
 const ShopSignin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [login] = useSigninMutation();
+  const [login, { isLoading }] = useSigninMutation();
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,7 +29,13 @@ const ShopSignin = () => {
       <div>Signin</div>
       <form onSubmit={handleSubmit} className="border rounded p-3">
         <Label id="username">username</Label>
-        <Input id="username" value={username} placeholder={"username"} onChange={(e) => setUsername(e.target.value)} />
+        <Input
+          id="username"
+          autoFocus={true}
+          value={username}
+          placeholder={"username"}
+          onChange={(e) => setUsername(e.target.value)}
+        />
         <Label id="password">password</Label>
         <Input
           type="password"
@@ -37,8 +44,11 @@ const ShopSignin = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit" className="bg-cyan-500 text-white p-2 px-3 rounded hover:opacity-70">
-          Signin
+        <button
+          type="submit"
+          className="bg-cyan-500 text-white p-1 text-sm w-20 rounded hover:opacity-70 flex items-center justify-center"
+        >
+          {isLoading ? <PiSpinner className="animate-spin text-lg" /> : "Signin"}
         </button>
       </form>
     </div>

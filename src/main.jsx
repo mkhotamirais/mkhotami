@@ -72,10 +72,7 @@ import MernReferensi from "./pages/mern/MernReferensi.jsx";
 import Projects from "./pages/projects/Projects.jsx";
 import Shop from "./pages/projects/shop/Shop.jsx";
 import ShopHome from "./pages/projects/shop/ShopHome.jsx";
-import ShopUser from "./pages/projects/shop/user/ShopUser.jsx";
 import ShopProduct from "./pages/projects/shop/product/ShopProduct.jsx";
-import ShopUserDetail from "./pages/projects/shop/user/ShopUserDetail.jsx";
-import ShopUserPost from "./pages/projects/shop/user/ShopUserPost.jsx";
 import Course from "./pages/basic/course/Course.jsx";
 import CourseTasks from "./pages/basic/course/CourseTasks.jsx";
 import CourseTheory from "./pages/basic/course/CourseTheory.jsx";
@@ -83,6 +80,16 @@ import CourseWork from "./pages/basic/course/CourseWork.jsx";
 import ShopSignin from "./pages/projects/shop/auth/ShopSignin.jsx";
 import ShopSignup from "./pages/projects/shop/auth/ShopSignup.jsx";
 import AuthRedirect from "./pages/projects/shop/auth/AuthRedirect.jsx";
+import Profile from "./pages/projects/shop/both/Profile.jsx";
+import ShopAdmUser from "./pages/projects/shop/admin/user/ShopAdmUser.jsx";
+import ShopAdmUserPost from "./pages/projects/shop/admin/user/ShopAdmUserPost.jsx";
+import ShopAdmUserDetail from "./pages/projects/shop/admin/user/ShopAdmUserDetail.jsx";
+import ShopAdmUserUpdate from "./pages/projects/shop/admin/user/ShopAdmUserUpdate.jsx";
+import ProtectedAdmin from "./pages/projects/shop/admin/ProtectedAdmin.jsx";
+import ShopAdmProd from "./pages/projects/shop/admin/product/ShopAdmProd.jsx";
+import ShopAdmCat from "./pages/projects/shop/admin/category/ShopAdmCat.jsx";
+import ShopAdmTag from "./pages/projects/shop/admin/tag/ShopAdmTag.jsx";
+import ProtectedUser from "./pages/projects/shop/user/ProtectedUser.jsx";
 
 store.dispatch(getUsers());
 store.dispatch(getPosts());
@@ -190,10 +197,20 @@ const router = createBrowserRouter(
             <Route path="signin" element={<ShopSignin />} />
             <Route path="signup" element={<ShopSignup />} />
           </Route>
-          <Route path="user">
-            <Route index element={<ShopUser />} />
-            <Route path="post" element={<ShopUserPost />} />
-            <Route path="detail/:id" element={<ShopUserDetail />} />
+          <Route element={<ProtectedUser />}>
+            <Route path="user-profile" element={<Profile />} />
+          </Route>
+          <Route element={<ProtectedAdmin />}>
+            <Route path="adm-profile" element={<Profile />} />
+            <Route path="adm-user">
+              <Route index element={<ShopAdmUser />} />
+              <Route path="post" element={<ShopAdmUserPost />} />
+              <Route path="detail/:id" element={<ShopAdmUserDetail />} />
+              <Route path="update/:id" element={<ShopAdmUserUpdate />} />
+            </Route>
+            <Route path="adm-product" element={<ShopAdmProd />} />
+            <Route path="adm-category" element={<ShopAdmCat />} />
+            <Route path="adm-tag" element={<ShopAdmTag />} />
           </Route>
           <Route path="product" element={<ShopProduct />} />
         </Route>
