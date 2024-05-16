@@ -1,4 +1,4 @@
-import { FaBars, FaChevronLeft, FaChevronRight, FaXmark } from "react-icons/fa6";
+import { FaBars, FaChevronLeft, FaChevronRight, FaTrashCan, FaXmark } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import usePath from "../hooks/usePath";
 import { useDispatch, useSelector } from "react-redux";
@@ -127,7 +127,7 @@ export const Tabs = ({ menus }) => {
 };
 Tabs.propTypes;
 
-export const Modal = ({ children, onClose, itemId, modalId, closeBtn = false, confirmDel = false, submitDel }) => {
+export const Modal = ({ children, onClose, itemId, modalId, closeBtn = false, confirmDel = false, submitDel, loadDel }) => {
   const { dark } = useSelector((state) => state.basic);
   return (
     <div
@@ -158,8 +158,11 @@ export const Modal = ({ children, onClose, itemId, modalId, closeBtn = false, co
           <form onSubmit={submitDel} className="relative">
             {modalId === itemId && <input type="checkbox" autoFocus className="absolute -z-50 opacity-0" />}
             <div className="flex gap-2">
-              <button type="submit" className="bg-red-500 text-white p-1 px-2 rounded hover:opacity-70">
-                Delete
+              <button
+                type="submit"
+                className="bg-red-500 text-white p-1 w-16 rounded hover:opacity-70 flex items-center justify-center"
+              >
+                {loadDel ? <PiSpinner className="animate-spin text-lg" /> : "Delete"}
               </button>
               <button type="button" onClick={onClose} className="bg-slate-500 rounded p-1 px-2 text-white hover:opacity-70">
                 Cancel
@@ -200,3 +203,28 @@ export const CardGrid = ({ children = "CardGrid", className }) => (
   </div>
 );
 CardGrid.propTypes;
+
+export const Figure = ({ src, alt, height = "h-32 sm:h-48" }) => {
+  const { dark } = useSelector((state) => state.basic);
+  return (
+    <figure className={`${dark ? "bg-slate-700" : "bg-slate-100"} ${height} rounded overflow-hidden`}>
+      <img src={src} alt={alt} className="h-full w-full object-contain object-center" />
+    </figure>
+  );
+};
+Figure.propTypes;
+
+export const PreviewImg = ({ onRemovePreview, preview }) => {
+  return (
+    <div className="relative w-48 h-48 my-2 border p-1 rounded overflow-hidden group">
+      <button
+        onClick={onRemovePreview}
+        className="hidden group-hover:flex items-center justify-center bg-[rgba(0,0,0,.5)] p-3 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        <FaTrashCan className="text-red-500 inline-block" />
+      </button>
+      <img src={preview} width={200} alt="image preview" className="object-contain object-center w-full h-full" />
+    </div>
+  );
+};
+PreviewImg.propTypes;

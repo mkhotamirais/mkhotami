@@ -80,7 +80,7 @@ const ShopAdmTagItems = ({ item }) => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               autoFocus={true}
-              className="focus:outline-none"
+              className="focus:outline-none bg-inherit w-full"
             />
             <button type="submit" className="absolute -z-50">
               submit

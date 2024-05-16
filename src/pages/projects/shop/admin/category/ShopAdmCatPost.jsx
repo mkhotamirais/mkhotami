@@ -31,7 +31,7 @@ const ShopAdmCatPost = () => {
         placeholder="add category"
         onChange={(e) => setName(e.target.value)}
         onFocus={() => dispatch(setIsEditCat(null))}
-        className="border rounded p-1 focus:outline-cyan-500 w-full"
+        className="border rounded p-1 focus:outline-cyan-500 w-full bg-inherit"
       />
       <button className="border rounded w-10 flex items-center justify-center bg-cyan-500 text-white text-sm hover:opacity-70">
         {isLoading ? <PiSpinner className="animate-spin" /> : <FaPlus />}

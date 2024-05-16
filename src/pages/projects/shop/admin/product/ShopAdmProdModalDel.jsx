@@ -1,18 +1,19 @@
-import { useDeleteUserMutation } from "../../../../../app/api/userApiSlice";
 import toast from "react-hot-toast";
+import { useDeleteProductMutation } from "../../../../../app/api/productApiSlice";
 import { Modal } from "../../../../../components/Components";
 
-const ShopAdmUserModalDel = ({ onClose, itemId, modalId, item }) => {
-  const [deleteUser, { isLoading }] = useDeleteUserMutation();
+const ShopAdmProdModalDel = ({ onClose, itemId, modalId, item }) => {
+  const [deleteProduct, { isLoading }] = useDeleteProductMutation();
   const submitDel = (e) => {
     e.preventDefault();
-    deleteUser(modalId)
+    deleteProduct(modalId)
       .unwrap()
       .then((res) => {
         toast.success(res?.message);
       })
       .catch((err) => [toast.error(err?.data?.message)]);
   };
+
   return (
     <Modal
       onClose={onClose}
@@ -24,11 +25,11 @@ const ShopAdmUserModalDel = ({ onClose, itemId, modalId, item }) => {
       loadDel={isLoading}
     >
       <div className="py-3">
-        <div>Delete {item?.username}, Apakah kamu yakin?</div>
+        <div>Delete {item?.name}, Apakah kamu yakin?</div>
       </div>
     </Modal>
   );
 };
-ShopAdmUserModalDel.propTypes;
+ShopAdmProdModalDel.propTypes;
 
-export default ShopAdmUserModalDel;
+export default ShopAdmProdModalDel;

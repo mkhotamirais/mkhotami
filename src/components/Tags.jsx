@@ -42,7 +42,7 @@ export const Input = ({ type = "text", id, value, onChange, autoFocus, autoCompl
 );
 Input.propTypes;
 
-export const Select = ({ children, id, value, onChange, className }) => {
+export const Select = ({ children, id, value, onChange, className, multiple }) => {
   const { dark } = useSelector((state) => state.basic);
   return (
     <select
@@ -50,6 +50,7 @@ export const Select = ({ children, id, value, onChange, className }) => {
       name={id}
       value={value}
       onChange={onChange}
+      multiple={multiple}
       className={`${className} ${dark ? "bg-slate-800" : "bg-white"} border rounded p-2 mb-2 w-full`}
     >
       {children}

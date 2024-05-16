@@ -59,7 +59,9 @@ const BubbleAuth = ({ className, menus, icon, isLogin = true }) => {
   }, [path]);
   return (
     <div className="relative">
-      <button onClick={() => dispatch(toggleOpenBubbleAuth())}>{icon}</button>
+      <button onClick={() => dispatch(toggleOpenBubbleAuth())} className="text-lg">
+        {icon}
+      </button>
       <div
         className={`${className} ${dark ? "bg-slate-900" : "bg-white"} ${
           openBubbleAuth ? "scale-100" : "scale-0"

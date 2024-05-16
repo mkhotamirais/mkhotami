@@ -19,7 +19,9 @@ const Shop = () => {
         </div>
         <BtnAuth />
       </div>
-      <Outlet />
+      <div className="my-2">
+        <Outlet />
+      </div>
     </div>
   );
 };

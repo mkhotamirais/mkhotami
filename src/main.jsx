@@ -90,6 +90,7 @@ import ShopAdmProd from "./pages/projects/shop/admin/product/ShopAdmProd.jsx";
 import ShopAdmCat from "./pages/projects/shop/admin/category/ShopAdmCat.jsx";
 import ShopAdmTag from "./pages/projects/shop/admin/tag/ShopAdmTag.jsx";
 import ProtectedUser from "./pages/projects/shop/user/ProtectedUser.jsx";
+import ShopAdmProdPost from "./pages/projects/shop/admin/product/ShopAdmProdPost.jsx";
 
 store.dispatch(getUsers());
 store.dispatch(getPosts());
@@ -208,7 +209,10 @@ const router = createBrowserRouter(
               <Route path="detail/:id" element={<ShopAdmUserDetail />} />
               <Route path="update/:id" element={<ShopAdmUserUpdate />} />
             </Route>
-            <Route path="adm-product" element={<ShopAdmProd />} />
+            <Route path="adm-product">
+              <Route index element={<ShopAdmProd />} />
+              <Route path="post" element={<ShopAdmProdPost />} />
+            </Route>
             <Route path="adm-category" element={<ShopAdmCat />} />
             <Route path="adm-tag" element={<ShopAdmTag />} />
           </Route>

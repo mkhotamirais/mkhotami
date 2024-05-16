@@ -3,6 +3,7 @@ import { Input, Label, Select } from "../../../../../components/Tags";
 import { usePostUserMutation } from "../../../../../app/api/userApiSlice";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { PiSpinner } from "react-icons/pi";
 
 const ShopAdmUserPost = () => {
   const [data, setData] = useState({});
@@ -13,7 +14,7 @@ const ShopAdmUserPost = () => {
   };
   const navigate = useNavigate();
 
-  const [postUser] = usePostUserMutation();
+  const [postUser, { isLoading }] = usePostUserMutation();
   const handleSubmit = (e) => {
     e.preventDefault();
     postUser(data)
@@ -44,8 +45,11 @@ const ShopAdmUserPost = () => {
           <option value="admin">admin</option>
           <option value="user">user</option>
         </Select>
-        <button type="submit" className="bg-cyan-500 text-white p-2 px-3 rounded hover:opacity-70">
-          Submit
+        <button
+          type="submit"
+          className="bg-cyan-500 text-white text-sm p-1 w-20 px-3 rounded hover:opacity-70 flex items-center justify-center"
+        >
+          {isLoading ? <PiSpinner className="animate-spin text-lg" /> : "Submit"}
         </button>
       </form>
     </div>

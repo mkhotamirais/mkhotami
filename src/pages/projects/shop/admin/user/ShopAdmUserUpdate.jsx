@@ -3,6 +3,7 @@ import { Input, Label, Select } from "../../../../../components/Tags";
 import { useGetUserByIdQuery, useUpdateUserMutation } from "../../../../../app/api/userApiSlice";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
+import { PiSpinner } from "react-icons/pi";
 
 const ShopAdmUserUpdate = () => {
   const { id } = useParams();
@@ -23,7 +24,7 @@ const ShopAdmUserUpdate = () => {
     }
   }, [data]);
 
-  const [updateUser] = useUpdateUserMutation();
+  const [updateUser, { isLoading }] = useUpdateUserMutation();
   const handleSubmit = (e) => {
     e.preventDefault();
     let result = { id, username, email };
@@ -75,8 +76,11 @@ const ShopAdmUserUpdate = () => {
           <option value="admin">admin</option>
           <option value="user">user</option>
         </Select>
-        <button type="submit" className="bg-cyan-500 text-white p-2 px-3 rounded hover:opacity-70">
-          Submit
+        <button
+          type="submit"
+          className="bg-cyan-500 text-white p-1 text-sm px-3 rounded hover:opacity-70 flex items-center justify-center"
+        >
+          {isLoading ? <PiSpinner className="animate-spin text-lg" /> : "Submit"}
         </button>
       </form>
     </div>
