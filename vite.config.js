@@ -8,7 +8,7 @@ export default defineConfig({
     proxy: {
       // "/api": "http://localhost:3000",
       // "/images": "http://localhost:3000",
-      "/api": "https://mkhotami-server.vercel.app",
+      // "/api": "https://mkhotami-server.vercel.app",
       "/images": "https://mkhotami-server.vercel.app",
     },
   },
