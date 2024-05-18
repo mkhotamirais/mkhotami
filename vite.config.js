@@ -9,7 +9,12 @@ export default defineConfig({
       // "/api": "http://localhost:3000",
       // "/images": "http://localhost:3000",
       // "/api": "https://mkhotami-server.vercel.app",
-      "/images": "https://mkhotami-server.vercel.app",
+      // "/images": "https://mkhotami-server.vercel.app",
+      "/images": {
+        target: "https://mkhotami-server.vercel.app",
+        changeOrigin: true,
+        // rewrite: (path) => path.replace(/^\/api/, ''),
+      },
     },
   },
 });
