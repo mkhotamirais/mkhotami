@@ -38,7 +38,7 @@ const ShopAdmProdPost = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    console.log("ahlo");
+    console.log(image);
     e.preventDefault();
     const data = new FormData();
     data.append("name", name);

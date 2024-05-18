@@ -8,6 +8,7 @@ const shopMenus = [
 ];
 
 const Shop = () => {
+  console.log(URL.hostname);
   return (
     <div>
       <div className="flex justify-between border-b rounded py-2 my-1">
