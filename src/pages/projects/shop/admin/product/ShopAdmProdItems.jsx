@@ -5,6 +5,7 @@ import { FaPenToSquare, FaTrash } from "react-icons/fa6";
 import { FaExclamationCircle } from "react-icons/fa";
 import ShopAdmProdModalDel from "./ShopAdmProdModalDel";
 const imageUrl = "https://mkhotami-server.vercel.app";
+// const imageUrl = "http://localhost:3000";
 
 const ShopAdmProdItems = ({ item }) => {
   const [idModalDel, setIdModalDel] = useState(null);
@@ -16,7 +17,7 @@ const ShopAdmProdItems = ({ item }) => {
   return (
     <div className="border rounded-lg p-1 sm:p-3 flex flex-col gap-1 sm:gap-2">
       <div className="text-sm text-gray-500">ID: {item?._id?.substring(0, 10)}...</div>
-      <Figure src={`${imageUrl}/${item?.imageUrl}`} alt={item?.imageName || "no image"} />
+      <Figure src={`${imageUrl}/images/${item?.imageName}`} alt={item?.imageName || "no image"} />
       <div className="capitalize font-medium text-base sm:text-lg">{item?.name}</div>
       <div className="text-lg sm:text-2xl">Rp{item?.price?.toLocaleString("id-ID")}</div>
       <div className="flex justify-between items-center mt-2">

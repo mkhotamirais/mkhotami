@@ -3,25 +3,25 @@ import { apiSlice } from "./apiSlice";
 export const tagApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getTags: builder.query({
-      query: () => `/tag`,
+      query: () => `/api/tag`,
       transformResponse: (res) => res.data,
       providesTags: ["Tag"],
     }),
     getTagById: builder.query({
-      query: (id) => `/tag/${id}`,
+      query: (id) => `/api/tag/${id}`,
       transformResponse: (res) => res.data,
       providesTags: ["Tag"],
     }),
     postTag: builder.mutation({
-      query: (body) => ({ url: `/tag`, method: "POST", body }),
+      query: (body) => ({ url: `/api/tag`, method: "POST", body }),
       invalidatesTags: (result, error, arg) => [{ type: "Tag", id: arg.id }],
     }),
     updateTag: builder.mutation({
-      query: (body) => ({ url: `/tag/${body?.id}`, method: "PATCH", body }),
+      query: (body) => ({ url: `/api/tag/${body?.id}`, method: "PATCH", body }),
       invalidatesTags: ["Tag"],
     }),
     deleteTag: builder.mutation({
-      query: (id) => ({ url: `/tag/${id}`, method: "DELETE" }),
+      query: (id) => ({ url: `/api/tag/${id}`, method: "DELETE" }),
       invalidatesTags: ["Tag"],
     }),
   }),

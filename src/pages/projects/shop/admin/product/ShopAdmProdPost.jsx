@@ -17,10 +17,6 @@ const ShopAdmProdPost = () => {
   const [image, setImage] = useState("");
   const [preview, setPreview] = useState("");
 
-  useEffect(() => {
-    console.log(tag);
-  }, [tag]);
-
   const onRemovePreview = () => {
     setImage("");
     setPreview("");
@@ -32,13 +28,16 @@ const ShopAdmProdPost = () => {
     setPreview(URL.createObjectURL(files));
   };
 
+  useEffect(() => {
+    console.log(preview);
+  }, [preview]);
+
   const { data: categories } = useGetCategoriesQuery();
   const { data: tags } = useGetTagsQuery();
   const [postProduct] = usePostProductMutation();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    console.log(image);
     e.preventDefault();
     const data = new FormData();
     data.append("name", name);
@@ -49,6 +48,7 @@ const ShopAdmProdPost = () => {
     });
     data.append("image", image);
     data.append("description", description);
+
     postProduct(data)
       .unwrap()
       .then((res) => {
