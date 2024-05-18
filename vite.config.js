@@ -13,7 +13,7 @@ export default defineConfig({
       "/images": {
         target: "https://mkhotami-server.vercel.app",
         changeOrigin: true,
-        // rewrite: (path) => path.replace(/^\/api/, ''),
+        rewrite: (path) => path.replace(/^\/images/, ""),
       },
     },
   },
