@@ -9,16 +9,15 @@ import ErrorBoundary from "./ErrorBoundary.jsx";
 import Home from "./pages/home/Home.jsx";
 import Basic from "./pages/basic/Basic.jsx";
 import Mern from "./pages/mern/Mern.jsx";
-import PublicApi from "./pages/public-api/PublicApi.jsx";
 import Html from "./pages/basic/html/Html.jsx";
 import Css from "./pages/basic/css/Css.jsx";
 import Javascript from "./pages/basic/javascript/Javascript.jsx";
 import Php from "./pages/basic/php/Php.jsx";
-import Omdbapi from "./pages/public-api/omdbapi/Omdbapi.jsx";
-import Jp from "./pages/public-api/jp/Jp.jsx";
-import Sisko from "./pages/public-api/sisko/Sisko.jsx";
-import Newsapi from "./pages/public-api/newsapi/Newsapi.jsx";
-import Fksapi from "./pages/public-api/fksapi/Fksapi.jsx";
+import Omdbapi from "./pages/client-app/omdbapi/Omdbapi.jsx";
+import Jp from "./pages/client-app/jp/Jp.jsx";
+import Sisko from "./pages/client-app/sisko/Sisko.jsx";
+import Newsapi from "./pages/client-app/newsapi/Newsapi.jsx";
+import Fksapi from "./pages/client-app/fksapi/Fksapi.jsx";
 import Mdb from "./pages/mern/mdb/Mdb.jsx";
 import Mys from "./pages/mern/mys/Mys.jsx";
 import Ex from "./pages/mern/express/Ex.jsx";
@@ -45,8 +44,6 @@ import { Accordion } from "./pages/home/reactComponents/accordion/Accordion.jsx"
 import { Carousel } from "./pages/home/reactComponents/carousel/Carousel.jsx";
 import Pagination from "./pages/home/reactComponents/pagination/Pagination.jsx";
 import ReactRingkasan from "./pages/mern/react/ReactRingkasan.jsx";
-import Todo from "./pages/projects/todo/Todo.jsx";
-import Kamus from "./pages/projects/kamus-mini/Kamus.jsx";
 import { UseState } from "./pages/mern/react/hooks/useState/UseState.jsx";
 import { UseEffect } from "./pages/mern/react/hooks/useEffect/UseEffect.jsx";
 import { UseCallback } from "./pages/mern/react/hooks/useCallback/UseCallback.jsx";
@@ -55,42 +52,35 @@ import { CustomHook } from "./pages/mern/react/hooks/customHook/CustomHook.jsx";
 import UseReducer from "./pages/mern/react/hooks/useReducer/UseReducer.jsx";
 import UseContext from "./pages/mern/react/hooks/useContext/UseContext.jsx";
 import UseMemo from "./pages/mern/react/hooks/useMemo/UseMemo.jsx";
-import JpPost from "./pages/public-api/jp/jpPost/JpPost.jsx";
-import JpUser from "./pages/public-api/jp/jpUser/JpUser.jsx";
-import JpUserDetail from "./pages/public-api/jp/jpUser/JpUserDetail.jsx";
-import JpPostDetail from "./pages/public-api/jp/jpPost/JpPostDetail.jsx";
-import { getPosts, getUsers } from "./app/public-api/jpSlice.js";
-import { getFakeProducts } from "./app/public-api/fksapiSlice.js";
-import FksapiDetail from "./pages/public-api/fksapi/FksapiDetail.jsx";
-import ResourceApi from "./pages/public-api/ResourceApi.jsx";
-import { getSiskoProducts } from "./app/public-api/siskoSlice.js";
-import SiskoDetail from "./pages/public-api/sisko/SiskoDetail.jsx";
-import SiskoCart from "./pages/public-api/sisko/SiskoCart.jsx";
-import SiskoCheckout from "./pages/public-api/sisko/SiskoCheckout.jsx";
-import SiskoInvoice from "./pages/public-api/sisko/SiskoInvoice.jsx";
+import JpPost from "./pages/client-app/jp/jpPost/JpPost.jsx";
+import JpUser from "./pages/client-app/jp/jpUser/JpUser.jsx";
+import JpUserDetail from "./pages/client-app/jp/jpUser/JpUserDetail.jsx";
+import JpPostDetail from "./pages/client-app/jp/jpPost/JpPostDetail.jsx";
+import { getPosts, getUsers } from "./app/client-app/jpSlice.js";
+import { getFakeProducts } from "./app/client-app/fksapiSlice.js";
+import FksapiDetail from "./pages/client-app/fksapi/FksapiDetail.jsx";
+import ResourceApi from "./pages/client-app/ResourceApi.jsx";
+import { getSiskoProducts } from "./app/client-app/siskoSlice.js";
+import SiskoDetail from "./pages/client-app/sisko/SiskoDetail.jsx";
+import SiskoCart from "./pages/client-app/sisko/SiskoCart.jsx";
+import SiskoCheckout from "./pages/client-app/sisko/SiskoCheckout.jsx";
+import SiskoInvoice from "./pages/client-app/sisko/SiskoInvoice.jsx";
+import ClientApp from "./pages/client-app/ClientApp.jsx";
 import MernReferensi from "./pages/mern/MernReferensi.jsx";
-import Projects from "./pages/projects/Projects.jsx";
-import Shop from "./pages/projects/shop/Shop.jsx";
-import ShopHome from "./pages/projects/shop/ShopHome.jsx";
-import ShopProduct from "./pages/projects/shop/product/ShopProduct.jsx";
 import Course from "./pages/basic/course/Course.jsx";
 import CourseTasks from "./pages/basic/course/CourseTasks.jsx";
 import CourseTheory from "./pages/basic/course/CourseTheory.jsx";
 import CourseWork from "./pages/basic/course/CourseWork.jsx";
-import ShopSignin from "./pages/projects/shop/auth/ShopSignin.jsx";
-import ShopSignup from "./pages/projects/shop/auth/ShopSignup.jsx";
-import AuthRedirect from "./pages/projects/shop/auth/AuthRedirect.jsx";
-import Profile from "./pages/projects/shop/both/Profile.jsx";
-import ShopAdmUser from "./pages/projects/shop/admin/user/ShopAdmUser.jsx";
-import ShopAdmUserPost from "./pages/projects/shop/admin/user/ShopAdmUserPost.jsx";
-import ShopAdmUserDetail from "./pages/projects/shop/admin/user/ShopAdmUserDetail.jsx";
-import ShopAdmUserUpdate from "./pages/projects/shop/admin/user/ShopAdmUserUpdate.jsx";
-import ProtectedAdmin from "./pages/projects/shop/admin/ProtectedAdmin.jsx";
-import ShopAdmProd from "./pages/projects/shop/admin/product/ShopAdmProd.jsx";
-import ShopAdmCat from "./pages/projects/shop/admin/category/ShopAdmCat.jsx";
-import ShopAdmTag from "./pages/projects/shop/admin/tag/ShopAdmTag.jsx";
-import ProtectedUser from "./pages/projects/shop/user/ProtectedUser.jsx";
-import ShopAdmProdPost from "./pages/projects/shop/admin/product/ShopAdmProdPost.jsx";
+import Todo from "./pages/client-app/todo/Todo.jsx";
+import MernApp from "./pages/mern-app/MernApp.jsx";
+import Kamus from "./pages/mern-app/kamus/Kamus.jsx";
+import Signin from "./pages/mern-app/auth/Signin.jsx";
+import Signup from "./pages/mern-app/auth/Signup.jsx";
+import MernAppWelcome from "./pages/mern-app/MernAppWelcome.jsx";
+import AdmUsers from "./pages/mern-app/admin/user/AdmUsers.jsx";
+import AdmKamus from "./pages/mern-app/admin/kamus/AdmKamus.jsx";
+import AdmKamusPost from "./pages/mern-app/admin/kamus/AdmKamusPost.jsx";
+import AdmKamusUpdate from "./pages/mern-app/admin/kamus/AdmKamusUpdate.jsx";
 
 store.dispatch(getUsers());
 store.dispatch(getPosts());
@@ -161,8 +151,9 @@ const router = createBrowserRouter(
           <Route path="nodePath" element={<NodePath />} />
         </Route>
       </Route>
-      <Route path="public-apis" element={<PublicApi />}>
+      <Route path="client-app" element={<ClientApp />}>
         <Route index element={<ResourceApi />} />
+        <Route path="todo" element={<Todo />} />
         <Route path="omdbapi" element={<Omdbapi />} />
         <Route path="jsonplaceholder" element={<Jp />}>
           <Route index element={<JpPost />} />
@@ -188,36 +179,17 @@ const router = createBrowserRouter(
         </Route>
         <Route path="newsapi" element={<Newsapi />} />
       </Route>
-      <Route path="projects" element={<Projects />}>
-        <Route index element={<Todo />} />
-        <Route path="todo" element={<Todo />} />
-        <Route path="kamus-mini" element={<Kamus />} />
-        <Route path="shop" element={<Shop />}>
-          <Route index element={<ShopHome />} />
-          <Route element={<AuthRedirect />}>
-            <Route path="signin" element={<ShopSignin />} />
-            <Route path="signup" element={<ShopSignup />} />
-          </Route>
-          <Route element={<ProtectedUser />}>
-            <Route path="user-profile" element={<Profile />} />
-          </Route>
-          <Route element={<ProtectedAdmin />}>
-            <Route path="adm-profile" element={<Profile />} />
-            <Route path="adm-user">
-              <Route index element={<ShopAdmUser />} />
-              <Route path="post" element={<ShopAdmUserPost />} />
-              <Route path="detail/:id" element={<ShopAdmUserDetail />} />
-              <Route path="update/:id" element={<ShopAdmUserUpdate />} />
-            </Route>
-            <Route path="adm-product">
-              <Route index element={<ShopAdmProd />} />
-              <Route path="post" element={<ShopAdmProdPost />} />
-            </Route>
-            <Route path="adm-category" element={<ShopAdmCat />} />
-            <Route path="adm-tag" element={<ShopAdmTag />} />
-          </Route>
-          <Route path="product" element={<ShopProduct />} />
+      <Route path="mern-app" element={<MernApp />}>
+        <Route index element={<MernAppWelcome />} />
+        <Route path="kamus" element={<Kamus />} />
+        <Route path="adm-user" element={<AdmUsers />} />
+        <Route path="adm-kamus">
+          <Route index element={<AdmKamus />} />
+          <Route path="post" element={<AdmKamusPost />} />
+          <Route path="update/:id" element={<AdmKamusUpdate />} />
         </Route>
+        <Route path="signin" element={<Signin />} />
+        <Route path="signup" element={<Signup />} />
       </Route>
     </Route>
   )

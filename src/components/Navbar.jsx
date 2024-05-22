@@ -9,8 +9,8 @@ const navMenus = [
   { href: "home", text: "home" },
   { href: "basic", text: "basic" },
   { href: "mern", text: "mern" },
-  { href: "public-apis", text: "public apis" },
-  { href: "projects", text: "projects" },
+  { href: "client-app", text: "client app" },
+  { href: "mern-app", text: "mern app" },
 ];
 
 export const NavBtn = () => {

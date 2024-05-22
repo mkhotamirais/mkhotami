@@ -1,6 +1,6 @@
 import { FaBars } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
-import { removeOpenBubble, removeOpenNav, removeOpenSidebar, toggleOpenSidebar } from "../app/features/basicSlice";
+import { removeOpenNav, removeOpenSidebar, toggleOpenSidebar } from "../app/features/basicSlice";
 import usePath from "../hooks/usePath";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
@@ -36,18 +36,18 @@ const mernMenus = [
 ];
 
 const publicApisMenus = [
-  { href: "/public-apis", text: "resource api" },
-  { href: "/public-apis/omdbapi", text: "omdbapi" },
-  { href: "/public-apis/jsonplaceholder", text: "jsonplaceholder" },
-  { href: "/public-apis/fakestoreapi", text: "fakestoreapi" },
-  { href: "/public-apis/sisko", text: "sisko" },
-  { href: "/public-apis/newsapi", text: "newsapi" },
+  { href: "/client-app", text: "resource api" },
+  { href: "/client-app/todo", text: "todo" },
+  { href: "/client-app/omdbapi", text: "omdbapi" },
+  { href: "/client-app/jsonplaceholder", text: "jsonplaceholder" },
+  { href: "/client-app/fakestoreapi", text: "fakestoreapi" },
+  { href: "/client-app/sisko", text: "sisko" },
+  { href: "/client-app/newsapi", text: "newsapi" },
 ];
 
 const miniProjectsMenus = [
-  { href: "/projects", text: "todo" },
-  { href: "/projects/kamus-mini", text: "kamus mini" },
-  { href: "/projects/shop", text: "shop" },
+  { href: "/mern-app", text: "welcome" },
+  { href: "/mern-app/kamus", text: "kamus" },
 ];
 
 export const AsideBtn = ({ className }) => {
@@ -71,10 +71,8 @@ export const AsideLinks = ({ className }) => {
   const { path } = usePath();
   const dispatch = useDispatch();
   const [menus, setMenus] = useState([]);
-  const { openBubble } = useSelector((state) => state.basic);
   const handleClick = () => {
     dispatch(removeOpenSidebar());
-    if (openBubble) dispatch(removeOpenBubble());
   };
   useEffect(() => {
     setSidebarActive(path[2]);
@@ -84,8 +82,8 @@ export const AsideLinks = ({ className }) => {
     if (path[1] === "home") setMenus(homeMenus);
     else if (path[1] === "basic") setMenus(basicMenus);
     else if (path[1] === "mern") setMenus(mernMenus);
-    else if (path[1] === "public-apis") setMenus(publicApisMenus);
-    else if (path[1] === "projects") setMenus(miniProjectsMenus);
+    else if (path[1] === "client-app") setMenus(publicApisMenus);
+    else if (path[1] === "mern-app") setMenus(miniProjectsMenus);
   }, [path]);
 
   return (
