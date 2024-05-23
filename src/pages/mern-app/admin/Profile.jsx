@@ -6,6 +6,7 @@ import { Err, Loading } from "../../../components/Components";
 import { useGetMeQuery, useUpdateMeMutation } from "../../../app/api/authApiSlice";
 import ProfileModalDelete from "./ProfileModalDelete";
 import { H2 } from "../../../components/Tags";
+import { PiSpinner } from "react-icons/pi";
 
 const Profile = () => {
   const { data = [], isLoading, isSuccess, isError, error } = useGetMeQuery();
@@ -18,7 +19,7 @@ const Profile = () => {
   const [password, setPassword] = useState("");
   const [confPassword, setConfPassword] = useState("");
   const [idModalDel, setIdModalDel] = useState(null);
-  const [updateMe] = useUpdateMeMutation();
+  const [updateMe, { isLoading: loadUpdate }] = useUpdateMeMutation();
 
   const onClose = () => {
     setIdModalDel(null);
@@ -158,8 +159,17 @@ const Profile = () => {
         {content}
         {isEdit ? (
           <div className="flex gap-2 py-2">
-            <button onClick={handleUpdateMe} className="bg-cyan-500 text-white hover:opacity-70 px-3 rounded-lg">
-              Save
+            <button
+              onClick={handleUpdateMe}
+              className="bg-cyan-500 flex items-center justify-center w-20 text-white hover:opacity-70 px-3 rounded-lg"
+            >
+              {loadUpdate ? (
+                <div className="text-xl">
+                  <PiSpinner className="animate-spin" />
+                </div>
+              ) : (
+                "Update"
+              )}
             </button>
             <button onClick={handleCancel} className="bg-gray-500 text-white hover:opacity-70 px-3 rounded-lg">
               Cancel

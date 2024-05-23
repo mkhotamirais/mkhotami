@@ -4,10 +4,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { PiSpinner } from "react-icons/pi";
 import { useGetUserByIdQuery, useUpdateUserMutation } from "../../../../app/api/userApiSlice";
 import { H2, Input, Label, Select } from "../../../../components/Tags";
+import { Err, Loading } from "../../../../components/Components";
 
 const AdmUserUpdate = () => {
   const { id } = useParams();
-  const { data: user } = useGetUserByIdQuery(id);
+  const { data: user, isLoading: lodaData, isError, isSuccess, error } = useGetUserByIdQuery(id);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,49 +41,61 @@ const AdmUserUpdate = () => {
         toast.error(err.data.message);
       });
   };
-  return (
-    <div>
-      <H2>Update User</H2>
-      <form onSubmit={handleSubmit}>
-        <Label id="username">username</Label>
-        <Input
-          autoFocus={"on"}
-          id="username"
-          placeholder="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <Label id="email">email</Label>
-        <Input
-          type="email"
-          id="email"
-          value={email}
-          placeholder="example@gmail.com"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <button type="button" onClick={() => setEditPass((prev) => !prev)} className="underline block">
-          {editPass ? "Hide" : "Change"} Password
-        </button>
-        {editPass && (
-          <div>
-            <Label id="password">password</Label>
-            <Input type="password" id="password" placeholder="*****" onChange={(e) => setPassword(e.target.value)} />
-            <Label id="confPassword">Confirm Password</Label>
-            <Input type="password" id="confPassword" placeholder="*****" onChange={(e) => setConfPassword(e.target.value)} />
-          </div>
-        )}
-        <Label id="role">Role</Label>
-        <Select id="role" value={role} onChange={(e) => setRole(e.target.value)}>
-          <option value={null}>select role</option>
-          <option value="user">User</option>
-          <option value="admin">Admin</option>
-        </Select>
-        <button type="submit" className="bg-blue-500 text-white rounded p-2 px-4 hover:opacity-70 w-24">
-          {isLoading ? <PiSpinner className="animate-spin mx-auto text-2xl py-1" /> : "Submit"}
-        </button>
-      </form>
-    </div>
-  );
+
+  let content;
+  if (lodaData) content = <Loading />;
+  else if (isError) content = <Err>{error}</Err>;
+  else if (isSuccess) {
+    content = (
+      <div>
+        <H2>Update User</H2>
+        <form onSubmit={handleSubmit}>
+          <Label id="username">username</Label>
+          <Input
+            autoFocus={"on"}
+            id="username"
+            placeholder="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <Label id="email">email</Label>
+          <Input
+            type="email"
+            id="email"
+            value={email}
+            placeholder="example@gmail.com"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button type="button" onClick={() => setEditPass((prev) => !prev)} className="underline block">
+            {editPass ? "Hide" : "Change"} Password
+          </button>
+          {editPass && (
+            <div>
+              <Label id="password">password</Label>
+              <Input type="password" id="password" placeholder="*****" onChange={(e) => setPassword(e.target.value)} />
+              <Label id="confPassword">Confirm Password</Label>
+              <Input
+                type="password"
+                id="confPassword"
+                placeholder="*****"
+                onChange={(e) => setConfPassword(e.target.value)}
+              />
+            </div>
+          )}
+          <Label id="role">Role</Label>
+          <Select id="role" value={role} onChange={(e) => setRole(e.target.value)}>
+            <option value={null}>select role</option>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </Select>
+          <button type="submit" className="bg-blue-500 text-white rounded p-2 px-4 hover:opacity-70 w-24">
+            {isLoading ? <PiSpinner className="animate-spin mx-auto text-2xl py-1" /> : "Submit"}
+          </button>
+        </form>
+      </div>
+    );
+  }
+  return content;
 };
 
 export default AdmUserUpdate;

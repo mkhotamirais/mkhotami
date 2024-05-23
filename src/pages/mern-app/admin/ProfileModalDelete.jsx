@@ -26,7 +26,7 @@ const ProfileModalDelete = ({ onClose, item, modalId }) => {
       loadDel={isLoading}
       submitDel={handleDelete}
     >
-      Delete your account, are you sure?
+      <div className="my-3">Delete your account, are you sure?</div>
     </Modal>
   );
 };
