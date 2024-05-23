@@ -1,38 +1,40 @@
-import { useState } from "react";
-import { kamusList } from "./kamusLIst";
+import { KamusQuerySearch, KamusQuerySort, KamusQueryTime } from "./KamusQuery";
+import { useSelector } from "react-redux";
+import { useGetKamusQuery } from "../../../app/api/kamusApiSlice";
+import { Err, Loading } from "../../../components/Components";
+import KamusItems from "./KamusItems";
 
 const Kamus = () => {
-  const [cari, setCari] = useState("");
-  const renderedKamus = kamusList
-    .filter((item) => item.text.includes(cari.toLowerCase().trim()))
-    .filter((item, i) => i < 5)
-    .map((item, i) => (
-      <div key={i} className="border-b p-2 text-left">
-        <span className="font-medium capitalize">{item.text}</span>: {item.description}
-      </div>
-    ));
-
-  const handleChange = (e) => {
-    setCari(e.target.value);
-  };
+  const { queryResult } = useSelector((state) => state.kamus);
+  const { data, isLoading, isError, isSuccess, error } = useGetKamusQuery(queryResult || "sort=name");
 
   let content;
-  if (cari.length > 0) {
-    if (renderedKamus.length > 0) content = renderedKamus;
-    else content = <div className="italic text-red-500">hasil tidak ditemukan</div>;
-  } else content = <div>hasil pencarian kamus mini</div>;
+  if (isLoading) content = <Loading />;
+  else if (isError) content = <Err>{error}</Err>;
+  else if (isSuccess) {
+    if (data?.length > 0) {
+      const renderedData = data && data.map((item) => <KamusItems key={item?._id} item={item} />);
+      content = (
+        <div>
+          <div className="flex flex-col gap-1 my-2">{renderedData}</div>
+        </div>
+      );
+    } else content = <div className="text-center mt-3 italic">no content</div>;
+  }
 
   return (
-    <div className="border flex flex-col p-2 rounded h-80">
-      <input
-        type="search"
-        className="border rounded mb-2 w-full p-2 bg-inherit"
-        placeholder="Cari kamus mini"
-        onChange={handleChange}
-      />
-      <div className="border rounded-lg relative block overflow-y-scroll w-full h-full">
-        <div className="p-2 flex flex-col absolute">{content}</div>
+    <div>
+      <div className="flex justify-between">
+        <div>Kamus</div>
       </div>
+      <div>
+        <KamusQuerySearch />
+      </div>
+      <div className="flex gap-1 items-center">
+        <KamusQuerySort />
+        <KamusQueryTime />
+      </div>
+      {content}
     </div>
   );
 };

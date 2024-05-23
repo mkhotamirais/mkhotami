@@ -81,6 +81,13 @@ import AdmUsers from "./pages/mern-app/admin/user/AdmUsers.jsx";
 import AdmKamus from "./pages/mern-app/admin/kamus/AdmKamus.jsx";
 import AdmKamusPost from "./pages/mern-app/admin/kamus/AdmKamusPost.jsx";
 import AdmKamusUpdate from "./pages/mern-app/admin/kamus/AdmKamusUpdate.jsx";
+import AdmUserDetail from "./pages/mern-app/admin/user/AdmUserDetail.jsx";
+import AdmUserPost from "./pages/mern-app/admin/user/AdmUserPost.jsx";
+import AdmUserUpdate from "./pages/mern-app/admin/user/AdmUserUpdate.jsx";
+import Profile from "./pages/mern-app/admin/Profile.jsx";
+import ProtectedAdmin from "./pages/mern-app/admin/ProtectedAdmin.jsx";
+import AuthRedirect from "./pages/mern-app/auth/AuthRedirect.jsx";
+import ProtectedMe from "./pages/mern-app/me/ProtectedMe.jsx";
 
 store.dispatch(getUsers());
 store.dispatch(getPosts());
@@ -182,14 +189,27 @@ const router = createBrowserRouter(
       <Route path="mern-app" element={<MernApp />}>
         <Route index element={<MernAppWelcome />} />
         <Route path="kamus" element={<Kamus />} />
-        <Route path="adm-user" element={<AdmUsers />} />
-        <Route path="adm-kamus">
-          <Route index element={<AdmKamus />} />
-          <Route path="post" element={<AdmKamusPost />} />
-          <Route path="update/:id" element={<AdmKamusUpdate />} />
+        <Route element={<AuthRedirect />}>
+          <Route path="signin" element={<Signin />} />
+          <Route path="signup" element={<Signup />} />
         </Route>
-        <Route path="signin" element={<Signin />} />
-        <Route path="signup" element={<Signup />} />
+        <Route path="me" element={<ProtectedMe />}>
+          <Route index element={<Profile />} />
+        </Route>
+        <Route element={<ProtectedAdmin />}>
+          <Route path="adm-profile" element={<Profile />} />
+          <Route path="adm-user">
+            <Route index element={<AdmUsers />} />
+            <Route path="detail/:id" element={<AdmUserDetail />} />
+            <Route path="post" element={<AdmUserPost />} />
+            <Route path="update/:id" element={<AdmUserUpdate />} />
+          </Route>
+          <Route path="adm-kamus">
+            <Route index element={<AdmKamus />} />
+            <Route path="post" element={<AdmKamusPost />} />
+            <Route path="update/:id" element={<AdmKamusUpdate />} />
+          </Route>
+        </Route>
       </Route>
     </Route>
   )

@@ -85,7 +85,7 @@ const AdmKamusUpdate = () => {
           </button>
           {reference.map((item, i) => (
             <div key={i} className="border rounded p-1 mb-1 flex justify-between text-sm my-2">
-              <div>
+              <div className="mr-2 overflow-x-scroll">
                 <div>Name : {item?.refName}</div>
                 <div>Link : {item?.refLink}</div>
               </div>

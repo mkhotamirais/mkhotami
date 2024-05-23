@@ -56,7 +56,7 @@ const AdmKamusPost = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <Label id="name">name</Label>
-        <Input type="text" value={name} autoFocus={true} onChange={(e) => setName(e.target.value)} />
+        <Input type="text" value={name} autoFocus={true} onChange={(e) => setName(e.target.value?.toLowerCase())} />
         <Label id="meaning">meaning</Label>
         <Textarea id="meaning" value={meaning} onChange={(e) => setMeaning(e.target.value)} />
         <Label id="reference">reference</Label>
@@ -74,7 +74,7 @@ const AdmKamusPost = () => {
           </button>
           {reference.map((item, i) => (
             <div key={i} className="border rounded p-1 mb-1 flex justify-between text-sm my-2">
-              <div>
+              <div className="mr-2 overflow-x-scroll">
                 <div>Name : {item?.refName}</div>
                 <div>Link : {item?.refLink}</div>
               </div>

@@ -1,14 +1,14 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useGetMeQuery } from "../../../app/api/authApiSlice";
 
-const AuthRedirect = () => {
+const ProtectedMe = () => {
   const { data } = useGetMeQuery();
 
-  if (!data?.role) {
+  if (data?.role === "user") {
     return <Outlet />;
-  } else if (data?.role) {
-    return <Navigate to="/mern-app" replace />;
+  } else if (data?.role === "" || data?.role === null) {
+    return <Navigate to="/" replace />;
   }
 };
 
-export default AuthRedirect;
+export default ProtectedMe;

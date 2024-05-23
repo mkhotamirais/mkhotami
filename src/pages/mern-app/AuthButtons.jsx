@@ -15,12 +15,12 @@ import {
 import { useGetMeQuery, useSignoutMutation } from "../../app/api/authApiSlice";
 
 const adminMenus = [
-  { href: "", text: "profile", icon: <FaUserGear /> },
+  { href: "adm-profile", text: "profile", icon: <FaUserGear /> },
   { href: "adm-user", text: "users", icon: <FaUsers /> },
   { href: "adm-kamus", text: "kamus", icon: <FaBook /> },
 ];
 
-const userMenus = [{ href: "/me", text: "profile", icon: <FaUserGear /> }];
+const userMenus = [{ href: "me", text: "profile", icon: <FaUserGear /> }];
 
 const guestMenus = [
   { href: "signin", text: "login", icon: <FaRightToBracket /> },
@@ -95,7 +95,7 @@ const AuthLogout = () => {
   return (
     <a
       onClick={handleClick}
-      href="/signin"
+      href="/mern-app/signin"
       className="bg-slate-500 mt-2 text-white rounded px-3 p-1 flex items-center gap-1 hover:opacity-70"
     >
       <FaRightFromBracket />

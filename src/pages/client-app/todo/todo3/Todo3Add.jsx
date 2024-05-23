@@ -19,7 +19,6 @@ const Todo3Add = () => {
   return (
     <form onSubmit={handleAdd} className="flex gap-1 mb-2">
       <input
-        autoFocus
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
