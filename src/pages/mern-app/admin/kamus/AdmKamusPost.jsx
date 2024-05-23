@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { usePostKamusMutation } from "../../../../app/api/kamusApiSlice";
 import { useNavigate } from "react-router-dom";
 import { FaExclamationCircle } from "react-icons/fa";
+import { PiSpinner } from "react-icons/pi";
 
 const AdmKamusPost = () => {
   const [name, setName] = useState("");
@@ -12,7 +13,7 @@ const AdmKamusPost = () => {
   const [reference, setReference] = useState([]);
   const [refName, setRefName] = useState("");
   const [refLink, setRefLink] = useState("");
-  const [postKamus] = usePostKamusMutation();
+  const [postKamus, { isLoading }] = usePostKamusMutation();
   const navigate = useNavigate();
 
   const handleAddRef = () => {
@@ -84,8 +85,17 @@ const AdmKamusPost = () => {
             </div>
           ))}
         </div>
-        <button type="submit" className="bg-cyan-500 border rounded p-2 px-3 text-sm hover:opacity-70 my-2">
-          Submit
+        <button
+          type="submit"
+          className="bg-cyan-500 border rounded p-2 px-3 w-20 flex items-center justify-center text-sm hover:opacity-70 my-2"
+        >
+          {isLoading ? (
+            <div className="text-xl">
+              <PiSpinner className="animate-spin" />
+            </div>
+          ) : (
+            "Submit"
+          )}
         </button>
       </form>
     </div>

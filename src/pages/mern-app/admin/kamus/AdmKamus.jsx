@@ -5,10 +5,17 @@ import { FaPlus } from "react-icons/fa6";
 import AdmKamusItems from "./AdmKamusItems";
 import { KamusQuerySearch, KamusQuerySort, KamusQueryTime } from "./AdmKamusQuery";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const AdmKamus = () => {
   const { queryResult } = useSelector((state) => state.kamus);
   const { data, isLoading, isError, isSuccess, error } = useGetKamusQuery(queryResult || "sort=name");
+
+  useEffect(() => {
+    console.log(queryResult);
+    console.log(isLoading);
+    console.log(isSuccess);
+  }, [queryResult, isLoading, isSuccess]);
 
   let content;
   if (isLoading) content = <Loading />;
