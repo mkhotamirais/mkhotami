@@ -13,6 +13,8 @@ const homeMenus = [
   { href: "/home/react-carousel", text: "react carousel" },
   { href: "/home/react-accordion", text: "react accordion" },
   { href: "/home/react-pagination", text: "react pagination" },
+  { href: "/home/library-components", text: "library components" },
+  { href: "/home/trynew-components", text: "trynew components" },
 ];
 
 const basicMenus = [

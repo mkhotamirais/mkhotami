@@ -40,6 +40,7 @@ const Signup = () => {
       <Label id="email">email</Label>
       <Input type="email" id="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
       <Label id="password">password</Label>
+      <Input id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       <Input
         type="password"
         id="password"

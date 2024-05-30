@@ -1,4 +1,4 @@
-import { FaBars, FaChevronLeft, FaChevronRight, FaTrashCan, FaXmark } from "react-icons/fa6";
+import { FaBars, FaChevronLeft, FaChevronRight, FaTrashCan, FaXmark, FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import usePath from "../hooks/usePath";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,6 +6,28 @@ import { toggleOpenBubble } from "../app/features/basicSlice";
 import { useEffect, useState } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { PiSpinner } from "react-icons/pi";
+
+export const InputPass = ({ id, value, onChange, placeholder }) => {
+  const [showPass, setShowPass] = useState(false);
+  return (
+    <div className="w-full border mb-2 flex rounded overflow-hidden">
+      <input
+        id={id}
+        name={id}
+        autoComplete="off"
+        type={showPass ? "text" : "password"}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder || "password"}
+        className="w-full p-1 focus:outline-cyan-300"
+      />
+      <button type="button" onClick={() => setShowPass((prev) => !prev)} className="px-3">
+        {showPass ? <FaRegEyeSlash /> : <FaRegEye />}
+      </button>
+    </div>
+  );
+};
+InputPass.propTypes;
 
 export const Prev = ({ className }) => (
   <div className={`${className}`}>

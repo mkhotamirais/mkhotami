@@ -88,6 +88,8 @@ import Profile from "./pages/mern-app/admin/Profile.jsx";
 import ProtectedAdmin from "./pages/mern-app/admin/ProtectedAdmin.jsx";
 import AuthRedirect from "./pages/mern-app/auth/AuthRedirect.jsx";
 import ProtectedMe from "./pages/mern-app/me/ProtectedMe.jsx";
+import LibraryComponents from "./pages/home/libraryComponents/LibraryComponents.jsx";
+import TryNewComponent from "./pages/home/reactComponents/TryNewComponent.jsx";
 
 store.dispatch(getUsers());
 store.dispatch(getPosts());
@@ -107,6 +109,8 @@ const router = createBrowserRouter(
         <Route path="react-accordion" element={<Accordion />} />
         <Route path="react-carousel" element={<Carousel />} />
         <Route path="react-pagination" element={<Pagination />} />
+        <Route path="library-components" element={<LibraryComponents />} />
+        <Route path="trynew-components" element={<TryNewComponent />} />
       </Route>
       <Route path="basic" element={<Basic />}>
         <Route index element={<Html />} />
