@@ -5,6 +5,7 @@ const courseMenus = [
   { href: "tasks", text: "tasks" },
   { href: "theory", text: "theory" },
   { href: "work", text: "work" },
+  { href: "technical", text: "technical" },
 ];
 
 const Course = () => {

@@ -90,6 +90,7 @@ import AuthRedirect from "./pages/mern-app/auth/AuthRedirect.jsx";
 import ProtectedMe from "./pages/mern-app/me/ProtectedMe.jsx";
 import LibraryComponents from "./pages/home/libraryComponents/LibraryComponents.jsx";
 import TryNewComponent from "./pages/home/reactComponents/TryNewComponent.jsx";
+import CourseTechnical from "./pages/basic/course/CourseTechnical.jsx";
 
 store.dispatch(getUsers());
 store.dispatch(getPosts());
@@ -134,6 +135,7 @@ const router = createBrowserRouter(
           <Route path="task" element={<CourseTasks />} />
           <Route path="theory" element={<CourseTheory />} />
           <Route path="work" element={<CourseWork />} />
+          <Route path="technical" element={<CourseTechnical />} />
         </Route>
       </Route>
       <Route path="mern" element={<Mern />}>

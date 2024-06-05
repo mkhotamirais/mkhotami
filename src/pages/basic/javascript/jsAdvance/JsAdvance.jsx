@@ -11,7 +11,10 @@ const JsAdvance = () => {
       <ul className="list-inside list-disc">
         <li>
           <b>Object</b> All javascript value except primitives are objects. primitives: string, number, boolean, null,
-          undefined, symbol, bigint. Property is variable inside object; Method is function inside object
+          undefined, symbol, bigint. Property is variable inside object; Method is function inside object. <b>Class</b>{" "}
+          Syntaxnya Class, tapi di belakang layar, prototype yang terjadi. tipe data apapun pasti object artinya pasti punya
+          prototype. untuk membuktikannya ketik perintah berikut di console: Array.prototype; Number.prototype;
+          Object.prototype; Date.prototype; dll
           <JsObject />
         </li>
         <li>
@@ -19,9 +22,6 @@ const JsAdvance = () => {
           <JsPrototype />
         </li>
         <li>
-          <b>Class</b> Syntaxnya Class, tapi di belakang layar, prototype yang terjadi. tipe data apapun pasti object artinya
-          pasti punya prototype. untuk membuktikannya ketik perintah berikut di console: Array.prototype; Number.prototype;
-          Object.prototype; Date.prototype; dll
           <JsClass />
         </li>
         <li>
