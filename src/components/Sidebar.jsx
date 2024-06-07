@@ -26,6 +26,7 @@ const basicMenus = [
   { href: "/basic/vscode", text: "vscode" },
   { href: "/basic/typescript", text: "typescript" },
   { href: "/basic/course", text: "course" },
+  { href: "/basic/umum", text: "umum" },
 ];
 
 const mernMenus = [

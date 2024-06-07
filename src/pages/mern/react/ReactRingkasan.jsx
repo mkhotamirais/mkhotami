@@ -6,6 +6,7 @@ const ReactRingkasan = () => {
     <section>
       <div>Ringkasan</div>
       <article>
+        <p>React is a javascript library for building UI. used for build SPA, allows us to create reusable UI component</p>
         <p>
           ReactJs adalah library js untuk UI Web App, beda dengan React Native (framework js untuk mobile app).
           Library/Pustaka perlu library pendukung seperti react-router. Prinsipnya component based, declarative, learn once

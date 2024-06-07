@@ -91,6 +91,7 @@ import ProtectedMe from "./pages/mern-app/me/ProtectedMe.jsx";
 import LibraryComponents from "./pages/home/libraryComponents/LibraryComponents.jsx";
 import TryNewComponent from "./pages/home/reactComponents/TryNewComponent.jsx";
 import CourseTechnical from "./pages/basic/course/CourseTechnical.jsx";
+import Umum from "./pages/basic/umum/Umum.jsx";
 
 store.dispatch(getUsers());
 store.dispatch(getPosts());
@@ -115,6 +116,7 @@ const router = createBrowserRouter(
       </Route>
       <Route path="basic" element={<Basic />}>
         <Route index element={<Html />} />
+        <Route path="umum" element={<Umum />} />
         <Route path="html" element={<Html />} />
         <Route path="css" element={<Css />} />
         <Route path="javascript" element={<Javascript />}>

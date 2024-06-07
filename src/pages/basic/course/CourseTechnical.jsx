@@ -19,11 +19,18 @@ export default function CourseTechnical() {
             untuk kirim data ke child; 5. modular dan reusable; 6. file struktur, misalnya komponent yang sejenis dimasukan
             ke dalam satu folder.
           </p>
+          <br />
           <p>
             Stateless component: komponen yang tidak memiliki state internal sendiri, hanya terima data dari parent
-            component. hanya bertugas merender UI berdasar{" "}
+            component. hanya bertugas merender UI statis atau UI yang hanya bergantung pada props, tanpa perubahan internal.
           </p>
-          <p>cara simpan data user login dilakukan adalah</p>
+          <br />
+          <p>
+            cara simpan data user login dilakukan dengan menyimpan token di browser (cookie atau local storage) yang diterima
+            dari response server saat login. token tersebut berisi data user login yang di generate di sisi server oleh
+            library jwt.
+          </p>
+          <br />
           <p>
             3 komponen utama react redux: 1. Store: wadah pusat menyimpan seluruh state, jadi hanya ada satu stor di setiap
             app; 2. Actions: object js yang mengirim data dari app ke store, setiap action memiliki type dan bisa memiliki
@@ -32,6 +39,7 @@ export default function CourseTechnical() {
             mengembalikan state baru. Reducers harus merupakan fungsi murni artinya tidak boleh mengubah state yang ada dan
             harus mengembalikans tate baru.
           </p>
+          <br />
         </div>
       </div>
     </div>
